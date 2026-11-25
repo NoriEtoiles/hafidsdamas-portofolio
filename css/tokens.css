@@ -1,0 +1,130 @@
+/* Token desain. Nilai mengikuti DESIGN.md bagian 3 dan board "Versi 4" (disetujui 2026-11-24).
+   Tema dipilih lewat data-theme di elemen akar. Tanpa atribut itu (JavaScript mati),
+   tema mengikuti sistem pengunjung lewat prefers-color-scheme, cadangannya terang. */
+
+@font-face {
+  font-family: "Big Shoulders Display";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../assets/fonts/big-shoulders-display-latin-900-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Familjen Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/familjen-grotesk-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Familjen Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/familjen-grotesk-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Familjen Grotesk";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/familjen-grotesk-latin-600-normal.woff2") format("woff2");
+}
+
+:root {
+  /* Tipografi dan ukuran (tidak berganti menurut tema) */
+  --font-display: "Big Shoulders Display", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Familjen Grotesk", system-ui, sans-serif;
+  --gutter: 48px;
+  --page-max: 1240px;
+  --cut: 28px;
+  --nav-offset: 88px;
+
+  /* Tema terang (krem dan emas), juga cadangan bila data-theme belum dipasang */
+  color-scheme: light;
+  --bg: #F6F1E6;
+  --g1: #E8DFCB;
+  --fg: #1B1A17;
+  --mut: #5C584F;
+  --acc: #C9A24B;
+  --accT: #7A5813;
+  --onacc: #1B1A17;
+  --i1: #7A5813;
+  --i2: #A07A22;
+  --line: #D9D0BC;
+  --tile: #FFFDF8;
+  --tileB: rgba(120, 110, 90, 0.24);
+  --hi: #C9A24B;
+  --glow: #C9A24B;
+  --glowS: rgba(201, 162, 75, 0.6);
+  --glass: rgba(255, 251, 242, 0.55);
+  --glassB: rgba(255, 255, 255, 0.75);
+  --glassHi: rgba(255, 255, 255, 0.55);
+  --sheen: rgba(255, 255, 255, 0.5);
+  --shadow: rgba(60, 45, 10, 0.18);
+  --hover-wash: rgba(120, 110, 90, 0.16);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Tema gelap (arang dan perak) */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151618;
+  --g1: #23252A;
+  --fg: #ECEDEF;
+  --mut: #A4A8B0;
+  --acc: #C9CED6;
+  --accT: #C9CED6;
+  --onacc: #151618;
+  --i1: #8D939D;
+  --i2: #E4E7EC;
+  --line: #2E3035;
+  --tile: #23252A;
+  --tileB: rgba(255, 255, 255, 0.08);
+  --hi: #C9CED6;
+  --glow: #E4E7EC;
+  --glowS: rgba(228, 231, 236, 0.5);
+  --glass: rgba(48, 50, 56, 0.55);
+  --glassB: rgba(255, 255, 255, 0.16);
+  --glassHi: rgba(255, 255, 255, 0.14);
+  --sheen: rgba(255, 255, 255, 0.14);
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+/* Tanpa JavaScript: ikuti sistem pengunjung. Nilainya sama dengan blok gelap di atas. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #151618;
+    --g1: #23252A;
+    --fg: #ECEDEF;
+    --mut: #A4A8B0;
+    --acc: #C9CED6;
+    --accT: #C9CED6;
+    --onacc: #151618;
+    --i1: #8D939D;
+    --i2: #E4E7EC;
+    --line: #2E3035;
+    --tile: #23252A;
+    --tileB: rgba(255, 255, 255, 0.08);
+    --hi: #C9CED6;
+    --glow: #E4E7EC;
+    --glowS: rgba(228, 231, 236, 0.5);
+    --glass: rgba(48, 50, 56, 0.55);
+    --glassB: rgba(255, 255, 255, 0.16);
+    --glassHi: rgba(255, 255, 255, 0.14);
+    --sheen: rgba(255, 255, 255, 0.14);
+    --shadow: rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Lebar sempit: hanya gutter yang mengecil (DESIGN.md bagian 15: 20 px) supaya tidak ada scroll horizontal.
+   Tata letak HP selebihnya ada di potongan 4.9. */
+@media (max-width: 640px) {
+  :root {
+    --gutter: 20px;
+  }
+}

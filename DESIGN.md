@@ -94,6 +94,20 @@ Rincian masalah aslinya:
 
 Teks navbar di atas kaca juga belum bisa dihitung secara statis karena latarnya berubah mengikuti konten yang lewat. Ini harus diuji pada bagian halaman dengan latar terburuk di kedua tema (lihat `docs/SOP-CODING.md`).
 
+### 3.5 Token struktural (potongan 4.1, 2026-11-25)
+
+Token berikut hanya mencatat angka yang sudah ada di mockup dan `docs/SOP-CODING.md`; tidak ada nilai desain baru. Ditulis di `css/tokens.css` bersama token warna.
+
+| Token | Nilai | Sumber |
+|---|---|---|
+| `--font-display` | Big Shoulders Display (bobot 900), cadangan Impact dan Arial Narrow | bagian 4 |
+| `--font-body` | Familjen Grotesk (400, 500, 600), cadangan sans-serif sistem | bagian 4 |
+| `--gutter` | 48 px, 20 px di lebar 640 px ke bawah | bagian 15 |
+| `--page-max` | 1240 px | lebar isi board Versi 4 |
+| `--cut` | 28 px | bagian 6 |
+| `--nav-offset` | 88 px (offset `scroll-margin-top` section) | SOP bagian 7 |
+| `--hover-wash` | `rgba(120,110,90,0.16)` (latar hover tautan nav tidak aktif, dipakai di kedua tema) | board Versi 4 |
+
 ## 4. Tipografi
 
 Dua keluarga huruf, keduanya berlisensi SIL Open Font License (OFL):

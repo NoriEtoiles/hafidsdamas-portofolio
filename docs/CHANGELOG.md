@@ -14,6 +14,7 @@ Aturan penulisan:
 ## [Belum dirilis]
 
 ### Ditambahkan
+- 2026-11-25: Potongan 4.1 dan 4.2. Kerangka HTML semantik (`index.html`), token warna terang dan gelap serta token struktural (`css/tokens.css`, `DESIGN.md` bagian 3.5), font Big Shoulders Display 900 dan Familjen Grotesk 400, 500, 600 dilayani sendiri (`assets/fonts/`, lisensi OFL disertakan), gaya dasar, lima section statis dengan teks dari PRD bagian 8, ganti tema langsung dengan penyimpanan `localStorage` yang aman (`js/theme-init.js`, `js/theme.js`), dan tombol "Salin email" dengan umpan balik jujur (`js/contact.js`). Foto, tangkapan layar, dan proyek berikutnya tetap placeholder berlabel. Diuji di Chrome tanpa kepala (FR-08, FR-09, FR-13, D-23). Selisih dari mockup di `docs/PRD.md` bagian 5 butir 19 sampai 26.
 - 2026-11-24: Board "Versi 4c" di kanvas dengan tiga usulan perbaikan kontras (lini masa, gradasi ITSC, penanda navbar aktif di tema terang). Disetujui pemilik pada hari yang sama dan diterapkan ke Versi 4 dan keempat board HP (PRD Q-05 sampai Q-07, `DESIGN.md` bagian 3.4). Selisih kecil: baris aktif menu HP tema terang berisian aksen `#7A5813`, bukan tinta.
 - 2026-11-24: D-23 (keputusan teknis: tema awal, font sendiri, CDN dan versi pustaka, metadata, alur repo) dan jawaban Q-01, Q-02, Q-03, Q-04, Q-08, Q-09, Q-10, Q-11, dan Q-15 di PRD.
 - 2026-11-19: Revisi Versi 4 di kanvas: sorotan kontur yang mengikuti kursor, cahaya kiri ke kanan pada nama "Hafids" di footer, kotak skill yang mengikuti tema, dan penghapusan kartu pembungkus kelompok Skills. Empat board HP disamakan. Belum disetujui (FR-05, FR-16, FR-17, D-22, `DESIGN.md` bagian 5, 9b, 9c).
@@ -22,6 +23,7 @@ Aturan penulisan:
 - 2026-11-19: Enam dokumen awal proyek: `docs/PRD.md`, `docs/SOP-CODING.md`, `DESIGN.md`, `AGENTS.md`, `docs/DECISIONS.md`, dan `docs/CHANGELOG.md`. Semuanya berstatus draf dan menunggu persetujuan pemilik. Belum ada kode situs.
 
 ### Diubah
+- 2026-11-25: `DESIGN.md` bagian 3.5 ditambahkan untuk mencatat token struktural (`--font-display`, `--font-body`, `--gutter`, `--page-max`, `--cut`, `--nav-offset`, `--hover-wash`) sesuai aturan token di `docs/SOP-CODING.md` bagian 3. Tidak ada nilai desain yang berubah.
 - 2026-11-24: Pemilik menyetujui board Versi 4 dan empat board HP. Versi 4 menggantikan Versi 3 sebagai sumber kebenaran desain (diperbarui di `AGENTS.md`, `DESIGN.md`, `docs/PRD.md`, `docs/SOP-CODING.md`, `docs/DECISIONS.md`). FR-14 (bagian HP), FR-16, dan FR-17 menjadi kebutuhan wajib. Pemilik memverifikasi data pendidikan dan pengalaman (Q-08).
 - 2026-11-23: Pemilik mengonfirmasi sapuan cahaya footer tetap seperti mockup (sekali saat terlihat, sekali per hover). Q-19 ditutup.
 - 2026-11-23: Tiga ikon kuning di Versi 4 dan empat board HP diganti emas tua (`#A29006`, `#B78A03`, `#C18400`) atas keputusan pemilik setelah membandingkan Versi 4 dan 4b. Lolos 3:1 di kedua tema (D-22, `DESIGN.md` bagian 5).

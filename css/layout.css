@@ -1,0 +1,209 @@
+/* Kerangka halaman dan section. Ukuran mengikuti board "Versi 4" (desktop).
+   Tampilan HP dan tablet belum termasuk (PRD FR-14, Q-18): di sini hanya pembungkus fleksibel
+   dan gutter yang mengecil supaya tidak ada scroll horizontal. */
+
+main {
+  display: block;
+}
+
+.section {
+  position: relative;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 40px var(--gutter) 128px;
+  scroll-margin-top: var(--nav-offset);
+}
+
+/* Header: struktur saja. Kaca, menyatu dan berpisah, serta sorotan aktif menyusul di potongan 4.3. */
+.site-header {
+  position: relative;
+  z-index: 20;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 16px var(--gutter) 0;
+}
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: min(744px, 100%);
+  margin: 0 auto;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Beranda */
+.section-home {
+  padding-top: 72px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 48px 72px;
+}
+.hero-copy {
+  flex: 1 1 560px;
+  min-width: 0;
+}
+.hero-name {
+  margin: 0;
+  font-size: clamp(64px, 8.8vw, 128px);
+  line-height: 0.96;
+  letter-spacing: 0.002em;
+}
+.hero-line {
+  display: block;
+  overflow: hidden;
+  padding-top: 0.04em;
+}
+.hero-role {
+  margin-top: 32px;
+  font-size: 21px;
+  font-weight: 600;
+}
+.hero-intro {
+  margin-top: 8px;
+  max-width: 560px;
+  color: var(--mut);
+}
+.hero-cta {
+  margin-top: 32px;
+}
+.hero-photo {
+  flex: 0 1 330px;
+  width: 100%;
+}
+
+/* Judul section besar */
+.section-title {
+  margin: 0;
+  font-size: clamp(88px, 12.5vw, 184px);
+  line-height: 0.92;
+}
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.section-aside {
+  max-width: 260px;
+  text-align: right;
+  color: var(--accT);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Skills */
+.skill-groups {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 64px 40px;
+  margin-top: 56px;
+}
+.skill-group {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+.skill-group-title {
+  margin: 12px 0 0;
+  font-size: 44px;
+  line-height: 1;
+}
+.skill-group-text {
+  margin-top: 14px;
+  color: var(--mut);
+}
+
+/* Karya */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 56px;
+}
+.project-card,
+.project-next {
+  flex: 1 1 440px;
+  min-width: 0;
+}
+
+/* Tentang */
+.about-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px 72px;
+}
+.about-column {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+.about-title {
+  margin: 0 0 48px;
+  font-size: 64px;
+  line-height: 1;
+}
+
+/* Kontak dan footer */
+.section-contact {
+  max-width: none;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.contact-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 112px var(--gutter) 0;
+}
+.contact-title {
+  margin: 0;
+  max-width: 960px;
+  font-size: clamp(52px, 7.4vw, 108px);
+  line-height: 0.98;
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 40px;
+  margin-top: 48px;
+}
+.site-footer {
+  position: relative;
+}
+.footer-inner {
+  padding-top: 0;
+}
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 96px;
+  font-size: 15px;
+  color: var(--mut);
+}
+.footer-word-clip {
+  height: 230px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+.footer-word {
+  display: block;
+  width: max-content;
+  font-size: 380px;
+  line-height: 0.9;
+  white-space: nowrap;
+  color: var(--line);
+}

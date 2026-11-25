@@ -1,0 +1,114 @@
+/* Reset, tipografi dasar, fokus, kursor. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  /* Gradasi tonal dari --g1 ke --bg sepanjang 900 px pertama, tanpa pengulangan (DESIGN.md bagian 3.1) */
+  background-image: linear-gradient(180deg, var(--g1), var(--bg) 900px);
+  background-repeat: no-repeat;
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Huruf display: selalu kapital, bobot 900 (DESIGN.md bagian 4) */
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* Kursor pointer diatur sekali di sini untuk semua elemen yang bisa diklik */
+:where(a[href], button:not(:disabled)) {
+  cursor: pointer;
+}
+:where(button:disabled) {
+  cursor: not-allowed;
+}
+
+button {
+  font: inherit;
+}
+
+/* Fokus keyboard terlihat di semua elemen interaktif dan di kedua tema */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* Section menerima fokus lewat skrip atau tautan jangkar, bukan lewat Tab, jadi tanpa cincin */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Tautan lompat ke isi utama: tersembunyi sampai menerima fokus keyboard */
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-120%);
+}
+.skip-link:focus-visible {
+  transform: translateY(8px);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,29 @@
+/* Transisi hover dan fokus. Hanya aktif bila pengguna tidak meminta kurangi gerak (DESIGN.md bagian 13).
+   Animasi masuk, navbar, benang, dan transisi tema menyusul di potongan berikutnya. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .link-underline {
+    transition: background-size 0.3s ease;
+  }
+  .btn {
+    transition: transform 0.2s ease, background-color 0.25s ease;
+  }
+  .nav-contact {
+    transition: transform 0.2s ease, background-color 0.25s ease, color 0.25s ease;
+  }
+  .nav-link {
+    transition: color 0.25s ease, background-color 0.25s ease;
+  }
+  .skill {
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .project-image {
+    transition: transform 0.35s ease;
+  }
+  .project-title {
+    transition: background-size 0.3s ease;
+  }
+  .timeline-marker {
+    transition: border-color 0.25s ease;
+  }
+}

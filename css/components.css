@@ -1,0 +1,351 @@
+/* Komponen: navbar (struktur dasar), tombol, tautan, placeholder, kotak skill, kartu, lini masa. */
+
+/* Motif identitas: sudut kanan bawah terpotong 28 px (DESIGN.md bagian 6) */
+.cut {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+
+/* ---------- Navbar (struktur dasar; kaca dan gerak menyusul di 4.3) ---------- */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 24px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.nav-link:not([aria-current="true"]):hover {
+  background: var(--hover-wash);
+}
+/* Penanda aktif (Q-07): terang berisian tinta, gelap berisian perak */
+.nav-link[aria-current="true"] {
+  background: var(--fg);
+  color: var(--bg);
+}
+:root[data-theme="dark"] .nav-link[aria-current="true"] {
+  background: var(--acc);
+  color: var(--onacc);
+}
+.nav-contact {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav-contact:hover {
+  transform: translateY(-2px);
+}
+.nav-contact[data-on="true"] {
+  background: var(--acc);
+  color: var(--onacc);
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+}
+/* Satu ikon terlihat per tema: matahari di terang, bulan di gelap */
+.icon-moon {
+  display: none;
+}
+:root[data-theme="dark"] .icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .icon-moon {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .icon-sun {
+    display: none;
+  }
+  :root:not([data-theme]) .icon-moon {
+    display: block;
+  }
+}
+
+/* ---------- Tombol dan tautan ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn-primary {
+  background: var(--acc);
+  color: var(--onacc);
+}
+.btn-secondary {
+  background: var(--g1);
+  color: var(--fg);
+}
+.btn-secondary:hover {
+  background: var(--line);
+}
+.btn-small {
+  height: 44px;
+  font-size: 15px;
+}
+
+.link-underline {
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+.footer-meta .link-underline {
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--mut);
+}
+
+/* ---------- Placeholder berlabel ---------- */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--mut);
+  background: var(--line);
+}
+.placeholder-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+.placeholder-shot {
+  aspect-ratio: 16 / 10;
+}
+.placeholder-empty {
+  aspect-ratio: 16 / 10;
+  background: transparent;
+  border: 1px dashed var(--mut);
+}
+
+/* Foto: blok aksen bergeser di belakang tempat foto */
+.photo-frame {
+  position: relative;
+}
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  background: var(--acc);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+.photo-frame > * {
+  position: relative;
+}
+
+/* ---------- Kotak skill ---------- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 24px;
+}
+.skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 116px;
+  padding: 16px 14px 14px;
+  background: var(--tile);
+  border: 1px solid var(--tileB);
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.skill svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+  color: var(--ic);
+}
+@media (hover: hover) {
+  .skill:hover {
+    transform: translateY(-3px);
+    border-color: var(--ic);
+  }
+}
+/* Warna ikon tetap di kedua tema (DESIGN.md bagian 5). Tiga ikon tinta mengikuti --fg. */
+.skill-ink { --ic: var(--fg); }
+.skill-html { --ic: #E34F26; }
+.skill-css { --ic: #8E55C6; }
+.skill-javascript { --ic: #A29006; }
+.skill-google-sheets { --ic: #34A853; }
+.skill-cisco { --ic: #049FD9; }
+.skill-linux { --ic: #B78A03; }
+.skill-python { --ic: #3776AB; }
+.skill-cpp { --ic: #0073CA; }
+.skill-sql { --ic: #5B6BD6; }
+.skill-google-colab { --ic: #C18400; }
+.skill-arduino { --ic: #00878F; }
+
+/* ---------- Kartu Karya ---------- */
+.project-card {
+  display: block;
+  text-decoration: none;
+}
+.project-card:hover .project-image {
+  transform: translateY(-6px);
+}
+.project-meta {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accT);
+}
+.project-title {
+  display: inline;
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.1;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 3px no-repeat;
+}
+.project-card:hover .project-title {
+  background-size: 100% 3px;
+}
+.project-text {
+  margin-top: 12px;
+  max-width: 520px;
+  color: var(--mut);
+}
+.project-tech {
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+/* ---------- Lini masa ---------- */
+.timeline-item {
+  display: flex;
+  gap: 20px;
+}
+.timeline-rail {
+  display: flex;
+  flex: 0 0 52px;
+  flex-direction: column;
+  align-items: center;
+}
+/* Hanya lingkaran dan garis rel yang diredupkan (Q-05). Teks tetap penuh, termasuk angka di lingkaran. */
+.timeline-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid color-mix(in srgb, var(--fg) 55%, transparent);
+  border-radius: 50%;
+  font-weight: 600;
+}
+.timeline-item:hover .timeline-marker {
+  border-color: var(--fg);
+}
+.timeline-item.is-current .timeline-marker {
+  border-color: transparent;
+  background: var(--acc);
+  color: var(--onacc);
+}
+.timeline-line {
+  flex-grow: 1;
+  width: 1px;
+  margin-top: 8px;
+  background: var(--line);
+}
+.timeline-body {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 40px;
+}
+.timeline-item:last-child .timeline-body {
+  padding-bottom: 0;
+}
+.timeline-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.timeline-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+.timeline-name-org {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1;
+  /* Satu-satunya teks bergradasi: ITSC, dari --i1 ke --i2 (DESIGN.md bagian 3.4, Q-06) */
+  background: linear-gradient(135deg, var(--i1), var(--i2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.timeline-date {
+  font-size: 15px;
+  color: var(--mut);
+}
+.timeline-role {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.timeline-note {
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--mut);
+}
+.timeline-text {
+  margin-top: 8px;
+  color: var(--mut);
+}
