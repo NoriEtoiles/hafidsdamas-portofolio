@@ -23,4 +23,22 @@
   }
 
   document.documentElement.setAttribute("data-theme", theme);
+
+  // Kelas "js" menyembunyikan elemen animasi masuk sampai skrip utama siap (DESIGN.md bagian 10).
+  // Dipasang di sini, sebelum render pertama, supaya elemen tidak berkedip tampil lalu hilang.
+  // Tidak dipasang bila pengguna meminta kurangi gerak, jadi semua konten langsung tampil.
+  var root = document.documentElement;
+  var reduce = false;
+  try {
+    reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch (err) {
+    reduce = false;
+  }
+  if (!reduce) {
+    root.classList.add("js");
+    // Pengaman: bila skrip utama tidak jalan (galat, berkas gagal dimuat), konten tidak boleh tetap tersembunyi
+    setTimeout(function () {
+      if (root.getAttribute("data-motion") !== "ready") root.classList.remove("js");
+    }, 3000);
+  }
 })();
