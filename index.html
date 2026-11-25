@@ -24,6 +24,13 @@
 <body>
   <a class="skip-link" href="#main">Lompat ke isi utama</a>
 
+  <!-- Benang latar: dekoratif, digambar js/thread.js, tersembunyi di bawah 1180 px (DESIGN.md bagian 9) -->
+  <svg class="thread" aria-hidden="true" focusable="false">
+    <path class="thread-base js-thread-base" d="M0 0"></path>
+    <path class="thread-line js-thread-line" d="M0 0" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"></path>
+    <circle class="thread-dot js-thread-dot" r="6" cx="-20" cy="-20"></circle>
+  </svg>
+
   <header class="site-header">
     <div class="nav-bar js-nav-bar">
       <a class="nav-logo display" href="#sec-home">Hafids</a>
@@ -169,6 +176,7 @@
         <div class="contact-links">
           <a class="link-underline" href="mailto:damasaryasutharamadhan@gmail.com">damasaryasutharamadhan@gmail.com</a>
           <button class="btn btn-secondary btn-small" type="button" data-copy-email="damasaryasutharamadhan@gmail.com">Salin email</button>
+          <button class="btn btn-secondary btn-small" type="button" disabled>[CV menyusul]</button>
           <span class="visually-hidden" data-copy-status aria-live="polite"></span>
           <a class="link-underline" href="https://github.com/NoriEtoiles" target="_blank" rel="noopener">GitHub · NoriEtoiles</a>
         </div>

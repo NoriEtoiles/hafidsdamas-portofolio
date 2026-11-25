@@ -197,6 +197,15 @@
 .btn-secondary:hover {
   background: var(--line);
 }
+/* Tombol belum aktif (CV menyusul): berlabel jelas, bergaris putus seperti placeholder lain, tanpa naik saat hover */
+.btn:disabled {
+  border: 1px dashed var(--mut);
+  background: transparent;
+  color: var(--mut);
+}
+.btn:disabled:hover {
+  transform: none;
+}
 .btn-small {
   height: 44px;
   font-size: 15px;

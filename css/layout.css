@@ -52,6 +52,40 @@ main {
   gap: 12px;
 }
 
+/* Benang latar (DESIGN.md bagian 9): di belakang semua konten, tidak menangkap klik, hilang di bawah 1180 px */
+.thread {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.thread-base {
+  fill: none;
+  stroke: var(--mut);
+  stroke-opacity: 0.3;
+  stroke-width: 1.5;
+}
+.thread-line {
+  fill: none;
+  stroke: var(--acc);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.thread-dot {
+  fill: var(--acc);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+@media (max-width: 1180px) {
+  .thread {
+    display: none;
+  }
+}
+
 /* Beranda */
 .section-home {
   padding-top: 72px;
