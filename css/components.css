@@ -50,6 +50,32 @@
   letter-spacing: 0.03em;
   text-decoration: none;
 }
+/* Status logo dan tombol tema (Q-13, disetujui 2026-11-25): hover memakai wash yang sama dengan tautan nav;
+   active memakai wash yang sama lalu mengecil. Saat berpisah, wash ditumpuk di atas kilap kaca. */
+.nav-logo:hover,
+.theme-toggle:hover,
+.nav-logo:active,
+.theme-toggle:active {
+  background-image: linear-gradient(var(--hover-wash), var(--hover-wash));
+}
+.nav-bar.is-split .nav-logo:hover,
+.nav-bar.is-split .theme-toggle:hover,
+.nav-bar.is-split .nav-logo:active,
+.nav-bar.is-split .theme-toggle:active {
+  background-image: linear-gradient(var(--hover-wash), var(--hover-wash)), linear-gradient(135deg, var(--sheen), transparent 45%);
+}
+.nav-logo:active {
+  transform: scale(0.96);
+}
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+.theme-toggle svg {
+  transform-origin: center;
+}
+.theme-toggle:hover svg {
+  transform: rotate(18deg);
+}
 .nav-link {
   position: relative;
   z-index: 1;

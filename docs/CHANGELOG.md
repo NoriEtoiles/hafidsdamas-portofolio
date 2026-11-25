@@ -14,6 +14,8 @@ Aturan penulisan:
 ## [Belum dirilis]
 
 ### Ditambahkan
+- 2026-11-25: Potongan 4.5 (FR-03). Scroll mulus ke section dengan Lenis 1.3.27 yang dihubungkan ke GSAP 3.15.0 dan ScrollTrigger (jsDelivr, versi dipatok, SRI), offset 88 px, durasi 550 sampai 1200 ms, fokus pindah ke section setelah tiba, berhenti saat roda diputar, dimatikan pada `prefers-reduced-motion: reduce`, dan fallback ke scroll bawaan bila pustaka gagal (`js/scroll.js`, `index.html`, `css/motion.css`).
+- 2026-11-25: Status hover dan active untuk logo dan tombol tema (Q-13, mockup disetujui pemilik): `css/components.css`, `css/motion.css`, `DESIGN.md` bagian 12.
 - 2026-11-25: Potongan 4.4 (FR-09). Transisi tema berbentuk lingkaran dengan View Transitions dari pusat tombol, 0,7 detik, fallback langsung bila API tidak ada atau gerak dikurangi (`js/theme.js`, `css/motion.css`).
 - 2026-11-25: Potongan 4.3 (FR-01). Navbar sticky dengan bahan kaca (`backdrop-filter: blur(20px) saturate(1.7)`), kapsul tunggal saat menyatu (`min(744px,100%)`) dan bagian-bagian terpisah saat scroll melebihi 40 px (`min(1144px,100%)`, kembali menyatu di bawah 12 px), penanda aktif berpindah yang diukur dari ukuran tautan, `aria-current="true"`, dan `data-on` pada Kontak (`js/navbar.js`, `css/components.css`, `css/layout.css`, `css/motion.css`). Transisi dimatikan pada `prefers-reduced-motion: reduce`.
 - 2026-11-25: Potongan 4.1 dan 4.2. Kerangka HTML semantik (`index.html`), token warna terang dan gelap serta token struktural (`css/tokens.css`, `DESIGN.md` bagian 3.5), font Big Shoulders Display 900 dan Familjen Grotesk 400, 500, 600 dilayani sendiri (`assets/fonts/`, lisensi OFL disertakan), gaya dasar, lima section statis dengan teks dari PRD bagian 8, ganti tema langsung dengan penyimpanan `localStorage` yang aman (`js/theme-init.js`, `js/theme.js`), dan tombol "Salin email" dengan umpan balik jujur (`js/contact.js`). Foto, tangkapan layar, dan proyek berikutnya tetap placeholder berlabel. Diuji di Chrome tanpa kepala (FR-08, FR-09, FR-13, D-23). Selisih dari mockup di `docs/PRD.md` bagian 5 butir 19 sampai 26.
@@ -41,6 +43,7 @@ Aturan penulisan:
 - Belum ada.
 
 ### Catatan selisih dari mockup
+- 2026-11-25: Butir 22 dan 30 ditutup; butir 32 (hash SRI dihitung dari paket npm, belum dicocokkan ke jsDelivr) dan 33 (nilai scroll belum dinilai pemilik) ditambahkan di `docs/PRD.md` bagian 5.
 - 2026-11-25: Butir 31 di `docs/PRD.md` bagian 5 (lingkaran hanya diuji di Chromium); butir 29 ditutup; butir 30 (Q-13) menunggu persetujuan mockup.
 - 2026-11-25: Potongan 4.3 menambah butir 27 sampai 30 di `docs/PRD.md` bagian 5 (posisi penanda diukur, kontras navbar gelap terbuka, Q-13).
 - 2026-11-23: Warna tiga ikon kuning (JavaScript, Linux, Google Colab) di Versi 4 berbeda dari logo resminya, dipilih pemilik demi kontras. Perilaku micro-interaction situs referensi tidak diverifikasi karena situsnya tidak bisa dibuka dari lingkungan kerja.

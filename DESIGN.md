@@ -301,8 +301,8 @@ Elemen disembunyikan oleh gaya yang hanya aktif bila kelas `js` terpasang di aka
 | Tombol (`.btn`) | naik 2 px, tombol sekunder berubah ke `--line` | kembali ke posisi awal | kontur 2 px | belum ada |
 | Tautan nav | latar `rgba(120,110,90,.16)` bila tidak aktif | belum ada | kontur 2 px | tidak ada |
 | Tombol "Kontak" | naik 2 px | belum ada | kontur 2 px | tidak ada |
-| Logo "Hafids" | belum ada | belum ada | kontur 2 px | tidak ada |
-| Tombol tema | belum ada | belum ada | kontur 2 px | tidak ada |
+| Logo "Hafids" | latar `--hover-wash` (Q-13, disetujui 2026-11-25) | wash yang sama, mengecil ke 0,96 | kontur 2 px | tidak ada |
+| Tombol tema | latar `--hover-wash`, ikon berputar 18 derajat (Q-13) | wash yang sama, mengecil ke 0,92 | kontur 2 px | tidak ada |
 | Kartu Karya | gambar naik 6 px (0,35 detik), garis bawah 3 px tumbuh di judul | belum ada | kontur 2 px | tidak ada |
 | Item lini masa | opasitas naik dari 0,55 ke 1 (bila tidak aktif) | tidak interaktif | tidak interaktif | tidak ada |
 | Kotak skill (tidak interaktif) | naik 3 px, garis tepi berubah ke warna ikon | tidak interaktif | tidak interaktif | tidak ada |
