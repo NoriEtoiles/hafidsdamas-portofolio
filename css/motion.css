@@ -1,5 +1,5 @@
 /* Transisi hover, fokus, dan navbar. Hanya aktif bila pengguna tidak meminta kurangi gerak (DESIGN.md bagian 13).
-   Animasi masuk, benang, dan transisi tema menyusul di potongan berikutnya.
+   Animasi masuk dan benang menyusul di potongan berikutnya.
    Navbar: lebar 0,7 detik, kapsul pudar 0,5 detik, pil sorotan 0,5 detik dengan sedikit melampaui (DESIGN.md bagian 7).
    Tanpa blok ini (kurangi gerak), menyatu dan berpisah serta perpindahan sorotan berlangsung langsung (bagian 13). */
 
@@ -42,5 +42,30 @@
   }
   .timeline-marker {
     transition: border-color 0.25s ease;
+  }
+}
+
+/* Transisi tema berbentuk lingkaran (DESIGN.md bagian 11). Hanya di Chromium dan bila gerak tidak dikurangi.
+   Animasi bawaan lama dan baru dimatikan; tampilan baru terungkap dari --ox, --oy (diisi theme.js). */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-new(root) {
+    z-index: 1;
+    animation: theme-reveal 0.7s ease-in-out both;
+  }
+  ::view-transition-old(root) {
+    z-index: 0;
+  }
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--ox, 50%) var(--oy, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--ox, 50%) var(--oy, 50%));
   }
 }

@@ -87,7 +87,7 @@
   --hi: #C9CED6;
   --glow: #E4E7EC;
   --glowS: rgba(228, 231, 236, 0.5);
-  --glass: rgba(48, 50, 56, 0.55);
+  --glass: rgba(48, 50, 56, 0.7);
   --glassB: rgba(255, 255, 255, 0.16);
   --glassHi: rgba(255, 255, 255, 0.14);
   --sheen: rgba(255, 255, 255, 0.14);
@@ -113,7 +113,7 @@
     --hi: #C9CED6;
     --glow: #E4E7EC;
     --glowS: rgba(228, 231, 236, 0.5);
-    --glass: rgba(48, 50, 56, 0.55);
+    --glass: rgba(48, 50, 56, 0.7);
     --glassB: rgba(255, 255, 255, 0.16);
     --glassHi: rgba(255, 255, 255, 0.14);
     --sheen: rgba(255, 255, 255, 0.14);

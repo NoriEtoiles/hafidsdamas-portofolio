@@ -49,7 +49,7 @@ Latar halaman memakai gradasi lurus 180 derajat dari `--g1` ke `--bg` sepanjang 
 
 | Token | Terang | Gelap |
 |---|---|---|
-| `--glass` | `rgba(255,251,242,0.55)` | `rgba(48,50,56,0.55)` |
+| `--glass` | `rgba(255,251,242,0.55)` | `rgba(48,50,56,0.70)` |
 | `--glassB` (garis tepi) | `rgba(255,255,255,0.75)` | `rgba(255,255,255,0.16)` |
 | `--glassHi` (kilau dalam) | `rgba(255,255,255,0.55)` | `rgba(255,255,255,0.14)` |
 | `--sheen` (kilap diagonal) | `rgba(255,255,255,0.5)` | `rgba(255,255,255,0.14)` |
