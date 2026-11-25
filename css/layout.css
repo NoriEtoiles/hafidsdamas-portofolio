@@ -14,15 +14,18 @@ main {
   scroll-margin-top: var(--nav-offset);
 }
 
-/* Header: struktur saja. Kaca, menyatu dan berpisah, serta sorotan aktif menyusul di potongan 4.3. */
+/* Header sticky (DESIGN.md bagian 7.1). Header sendiri tidak menangkap klik; hanya baris navbar yang menangkap. */
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 16px;
   z-index: 20;
   max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 16px var(--gutter) 0;
+  margin: 16px auto 0;
+  padding: 0 var(--gutter);
+  pointer-events: none;
 }
 .nav-bar {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -30,8 +33,15 @@ main {
   gap: 12px;
   width: min(744px, 100%);
   margin: 0 auto;
+  pointer-events: auto;
+}
+/* Berpisah: baris melebar (DESIGN.md bagian 7.2) */
+.nav-bar.is-split {
+  width: min(1144px, 100%);
 }
 .nav-links {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-wrap: wrap;
   padding: 4px;

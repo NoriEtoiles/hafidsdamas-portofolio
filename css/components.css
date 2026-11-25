@@ -1,27 +1,63 @@
-/* Komponen: navbar (struktur dasar), tombol, tautan, placeholder, kotak skill, kartu, lini masa. */
+/* Komponen: navbar, tombol, tautan, placeholder, kotak skill, kartu, lini masa. */
 
 /* Motif identitas: sudut kanan bawah terpotong 28 px (DESIGN.md bagian 6) */
 .cut {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
 }
 
-/* ---------- Navbar (struktur dasar; kaca dan gerak menyusul di 4.3) ---------- */
+/* ---------- Navbar (DESIGN.md bagian 7) ---------- */
+
+/* Bahan kaca. Dipakai hanya di navbar: kapsul gabungan, serta logo, kelompok nav, dan tombol tema saat berpisah. */
+.nav-bar::before,
+.nav-bar.is-split .nav-logo,
+.nav-bar.is-split .nav-links,
+.nav-bar.is-split .theme-toggle {
+  background-color: var(--glass);
+  background-image: linear-gradient(135deg, var(--sheen), transparent 45%);
+  border-color: var(--glassB);
+  box-shadow: inset 0 1px 1px var(--glassHi), 0 10px 30px var(--shadow);
+  -webkit-backdrop-filter: blur(20px) saturate(1.7);
+  backdrop-filter: blur(20px) saturate(1.7);
+}
+
+/* Kapsul tunggal di belakang semua bagian saat menyatu */
+.nav-bar::before {
+  content: "";
+  position: absolute;
+  inset: -6px -8px;
+  z-index: -1;
+  border: 1px solid var(--glassB);
+  border-radius: 999px;
+  pointer-events: none;
+}
+.nav-bar.is-split::before {
+  opacity: 0;
+}
+
+/* Bagian-bagian: tembus pandang saat menyatu, kaca sendiri saat berpisah */
+.nav-logo,
+.nav-links,
+.theme-toggle {
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
 .nav-logo {
   display: flex;
   align-items: center;
   height: 48px;
   padding: 0 24px;
-  border-radius: 999px;
   font-size: 24px;
   letter-spacing: 0.03em;
   text-decoration: none;
 }
 .nav-link {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 104px;
-  height: 44px;
+  height: 40px;
   padding: 0 16px;
   border-radius: 999px;
   font-size: 15px;
@@ -31,13 +67,30 @@
 .nav-link:not([aria-current="true"]):hover {
   background: var(--hover-wash);
 }
-/* Penanda aktif (Q-07): terang berisian tinta, gelap berisian perak */
-.nav-link[aria-current="true"] {
+/* Penanda aktif: satu pil yang berpindah (diposisikan skrip dari ukuran tautan sebenarnya).
+   Q-07: terang berisian tinta, gelap berisian perak. */
+.nav-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 0;
+  height: 0;
+  border-radius: 999px;
   background: var(--fg);
+  opacity: 0;
+  pointer-events: none;
+}
+.nav-pill.is-visible {
+  opacity: 1;
+}
+:root[data-theme="dark"] .nav-pill {
+  background: var(--acc);
+}
+.nav-link[aria-current="true"] {
   color: var(--bg);
 }
 :root[data-theme="dark"] .nav-link[aria-current="true"] {
-  background: var(--acc);
   color: var(--onacc);
 }
 .nav-contact {
@@ -66,8 +119,6 @@
   width: 48px;
   height: 48px;
   padding: 0;
-  border: 0;
-  border-radius: 999px;
   background: transparent;
   color: var(--fg);
 }

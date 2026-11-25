@@ -14,6 +14,7 @@ Aturan penulisan:
 ## [Belum dirilis]
 
 ### Ditambahkan
+- 2026-11-25: Potongan 4.3 (FR-01). Navbar sticky dengan bahan kaca (`backdrop-filter: blur(20px) saturate(1.7)`), kapsul tunggal saat menyatu (`min(744px,100%)`) dan bagian-bagian terpisah saat scroll melebihi 40 px (`min(1144px,100%)`, kembali menyatu di bawah 12 px), penanda aktif berpindah yang diukur dari ukuran tautan, `aria-current="true"`, dan `data-on` pada Kontak (`js/navbar.js`, `css/components.css`, `css/layout.css`, `css/motion.css`). Transisi dimatikan pada `prefers-reduced-motion: reduce`.
 - 2026-11-25: Potongan 4.1 dan 4.2. Kerangka HTML semantik (`index.html`), token warna terang dan gelap serta token struktural (`css/tokens.css`, `DESIGN.md` bagian 3.5), font Big Shoulders Display 900 dan Familjen Grotesk 400, 500, 600 dilayani sendiri (`assets/fonts/`, lisensi OFL disertakan), gaya dasar, lima section statis dengan teks dari PRD bagian 8, ganti tema langsung dengan penyimpanan `localStorage` yang aman (`js/theme-init.js`, `js/theme.js`), dan tombol "Salin email" dengan umpan balik jujur (`js/contact.js`). Foto, tangkapan layar, dan proyek berikutnya tetap placeholder berlabel. Diuji di Chrome tanpa kepala (FR-08, FR-09, FR-13, D-23). Selisih dari mockup di `docs/PRD.md` bagian 5 butir 19 sampai 26.
 - 2026-11-24: Board "Versi 4c" di kanvas dengan tiga usulan perbaikan kontras (lini masa, gradasi ITSC, penanda navbar aktif di tema terang). Disetujui pemilik pada hari yang sama dan diterapkan ke Versi 4 dan keempat board HP (PRD Q-05 sampai Q-07, `DESIGN.md` bagian 3.4). Selisih kecil: baris aktif menu HP tema terang berisian aksen `#7A5813`, bukan tinta.
 - 2026-11-24: D-23 (keputusan teknis: tema awal, font sendiri, CDN dan versi pustaka, metadata, alur repo) dan jawaban Q-01, Q-02, Q-03, Q-04, Q-08, Q-09, Q-10, Q-11, dan Q-15 di PRD.
@@ -23,6 +24,7 @@ Aturan penulisan:
 - 2026-11-19: Enam dokumen awal proyek: `docs/PRD.md`, `docs/SOP-CODING.md`, `DESIGN.md`, `AGENTS.md`, `docs/DECISIONS.md`, dan `docs/CHANGELOG.md`. Semuanya berstatus draf dan menunggu persetujuan pemilik. Belum ada kode situs.
 
 ### Diubah
+- 2026-11-25: Tinggi tautan nav diubah dari 44 px ke 40 px sesuai `DESIGN.md` bagian 7.1; header berubah dari statis ke sticky.
 - 2026-11-25: `DESIGN.md` bagian 3.5 ditambahkan untuk mencatat token struktural (`--font-display`, `--font-body`, `--gutter`, `--page-max`, `--cut`, `--nav-offset`, `--hover-wash`) sesuai aturan token di `docs/SOP-CODING.md` bagian 3. Tidak ada nilai desain yang berubah.
 - 2026-11-24: Pemilik menyetujui board Versi 4 dan empat board HP. Versi 4 menggantikan Versi 3 sebagai sumber kebenaran desain (diperbarui di `AGENTS.md`, `DESIGN.md`, `docs/PRD.md`, `docs/SOP-CODING.md`, `docs/DECISIONS.md`). FR-14 (bagian HP), FR-16, dan FR-17 menjadi kebutuhan wajib. Pemilik memverifikasi data pendidikan dan pengalaman (Q-08).
 - 2026-11-23: Pemilik mengonfirmasi sapuan cahaya footer tetap seperti mockup (sekali saat terlihat, sekali per hover). Q-19 ditutup.
@@ -37,6 +39,7 @@ Aturan penulisan:
 - Belum ada.
 
 ### Catatan selisih dari mockup
+- 2026-11-25: Potongan 4.3 menambah butir 27 sampai 30 di `docs/PRD.md` bagian 5 (posisi penanda diukur, kontras navbar gelap terbuka, Q-13).
 - 2026-11-23: Warna tiga ikon kuning (JavaScript, Linux, Google Colab) di Versi 4 berbeda dari logo resminya, dipilih pemilik demi kontras. Perilaku micro-interaction situs referensi tidak diverifikasi karena situsnya tidak bisa dibuka dari lingkungan kerja.
 - 2026-11-19 (diselesaikan 2026-11-24, Versi 4 disetujui): Versi 4 menyimpang dari Versi 3 yang disetujui dalam dua hal (latar kontur, warna ikon tetap) sampai pemilik menyetujuinya. Sampai itu terjadi, sumber kebenaran desain tetap Versi 3 (D-21).
 - 2026-11-19 (HP disetujui 2026-11-24): Tampilan HP dan responsif tidak ada di Versi 3. Rancangan HP ada di board terpisah. Tablet belum dirancang (PRD FR-14, Q-01, Q-18).
