@@ -136,3 +136,50 @@ html.lenis body {
     background-size: 100% 100%;
   }
 }
+
+/* Sorotan kontur memudar 0,4 detik; dengan reduced motion tanpa transisi, tetapi tetap mengikuti kursor
+   karena itu manipulasi langsung, bukan gerak otomatis (DESIGN.md bagian 9b). */
+@media (prefers-reduced-motion: no-preference) {
+  .contour-highlight {
+    transition: opacity 0.4s ease;
+  }
+}
+
+/* Cahaya pada kata "Hafids" di footer (DESIGN.md bagian 9c, D-22): satu sapuan saat footer terlihat,
+   satu sapuan lagi tiap kursor masuk. Lapisan teks sama dipotong mengikuti huruf (background-clip: text).
+   Hanya di luar reduced motion; dengan reduced motion kata tampil statis. */
+.footer-word::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(90deg, transparent, var(--glow) 50%, transparent) no-repeat;
+  background-size: 34% 100%;
+  background-position: -60% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 16px var(--glowS));
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .footer-word.is-go::after {
+    animation: glow-sweep 2.4s cubic-bezier(0.45, 0, 0.2, 1) 0.15s 1;
+  }
+  @media (hover: hover) {
+    .footer-word:hover::after {
+      animation: glow-sweep 2.4s cubic-bezier(0.45, 0, 0.2, 1) 1;
+    }
+  }
+}
+@keyframes glow-sweep {
+  0% {
+    background-position: -60% 0;
+    opacity: 1;
+  }
+  100% {
+    background-position: 160% 0;
+    opacity: 1;
+  }
+}

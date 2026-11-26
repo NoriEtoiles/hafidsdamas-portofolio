@@ -14,6 +14,7 @@ Aturan penulisan:
 ## [Belum dirilis]
 
 ### Ditambahkan
+- 2026-11-26: Potongan 4.7b (D-21, D-22). Latar kontur topografi, sorotan kontur di bawah kursor (hanya perangkat dengan hover), dan cahaya pada kata "Hafids" di footer; keduanya mati dengan reduced motion (`js/contour.js`, `js/footer-glow.js`, `css/layout.css`, `css/motion.css`, `index.html`, `js/main.js`).
 - 2026-11-25: Potongan 4.7 (FR-10). Benang latar: dua jalur SVG di gutter yang menyeberang lewat celah antar section, ujung aksen dan titik mengikuti scroll, dihitung ulang saat ukuran dan font berubah, tersembunyi di bawah 1180 px, tergambar penuh tanpa titik dengan reduced motion (`js/thread.js`, `css/layout.css`, `css/base.css`, `index.html`).
 - 2026-11-25: Tombol "[CV menyusul]" nonaktif di baris tautan Kontak sebagai placeholder berlabel sampai file CV diberikan (`index.html`, `css/components.css`).
 - 2026-11-25: Potongan 4.6 (FR-11). Animasi masuk: nama hero naik per baris, elemen biasa muncul dan naik 18 px, judul besar terisi dari kiri ke kanan; sekali per elemen lewat `IntersectionObserver`, konten tetap tampil penuh tanpa JavaScript, dengan reduced motion, dan bila skrip utama gagal (`js/reveal.js`, `js/theme-init.js`, `css/motion.css`, `index.html`).
@@ -46,6 +47,7 @@ Aturan penulisan:
 - Belum ada.
 
 ### Catatan selisih dari mockup
+- 2026-11-26: Butir 37 ditutup; butir 38 (kinerja mask dan kontras teks di atas sorotan belum diukur) dan 39 (mockup Open Graph menunggu persetujuan) ditambahkan di `docs/PRD.md` bagian 5.
 - 2026-11-25: Butir 35 sampai 37 ditambahkan di `docs/PRD.md` bagian 5 (benang di dasar halaman belum penuh, tombol CV placeholder, kontur dan cahaya footer belum punya potongan).
 - 2026-11-25: Butir 34 ditambahkan di `docs/PRD.md` bagian 5 (kelas gaya terpisah dari kait `js-`, pengaman 3 detik, `is-done`).
 - 2026-11-25: Butir 22 dan 30 ditutup; butir 32 (hash SRI dihitung dari paket npm, belum dicocokkan ke jsDelivr) dan 33 (nilai scroll belum dinilai pemilik) ditambahkan di `docs/PRD.md` bagian 5.
