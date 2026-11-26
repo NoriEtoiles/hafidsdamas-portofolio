@@ -140,7 +140,7 @@ html.lenis body {
 /* Sorotan kontur memudar 0,4 detik; dengan reduced motion tanpa transisi, tetapi tetap mengikuti kursor
    karena itu manipulasi langsung, bukan gerak otomatis (DESIGN.md bagian 9b). */
 @media (prefers-reduced-motion: no-preference) {
-  .contour-highlight {
+  .contour-spot {
     transition: opacity 0.4s ease;
   }
 }

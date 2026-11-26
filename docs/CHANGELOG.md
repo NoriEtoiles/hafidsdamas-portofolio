@@ -43,6 +43,7 @@ Aturan penulisan:
 - 2026-11-19: Paragraf hero di `docs/PRD.md` bagian 8.1 diganti menjadi lebih santai dan personal atas komentar tinjauan pemilik (FR-04, PRD bagian 5 butir 17). Board Versi 3 belum diperbarui.
 
 ### Diperbaiki
+- 2026-11-26: Lag scroll dan gerak kursor setelah 4.7b. Sorotan kontur kini jendela 460 px yang dipindah dengan `transform` (mask ubin baru `assets/contour-hi.svg`), benang digambar sekali dan saat scroll hanya tinggi pembungkus dan posisi titik yang berubah, rebuild benang digabung per frame (`js/contour.js`, `js/thread.js`, `css/layout.css`, `css/motion.css`, `index.html`, `DESIGN.md`, `docs/PRD.md` butir 35, 38, 43). Waktu per frame scroll turun dari 20,7 ke 16,7 ms rata-rata (p95 33,4 ke 16,8) di Chrome headless.
 - Belum ada.
 
 ### Dihapus
