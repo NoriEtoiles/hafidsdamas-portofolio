@@ -31,6 +31,7 @@ Aturan penulisan:
 - 2026-11-19: Enam dokumen awal proyek: `docs/PRD.md`, `docs/SOP-CODING.md`, `DESIGN.md`, `AGENTS.md`, `docs/DECISIONS.md`, dan `docs/CHANGELOG.md`. Semuanya berstatus draf dan menunggu persetujuan pemilik. Belum ada kode situs.
 
 ### Diubah
+- 2026-11-26: Tema terang dibuat lebih pucat atas persetujuan pemilik (D-24): `--bg` `#F6F1E6` ke `#FAF7F0`, `--g1` `#E8DFCB` ke `#F0E9D8`, `--line` `#D9D0BC` ke `#E0D7C3` (`css/tokens.css`, `DESIGN.md` bagian 3, `docs/DECISIONS.md`). Kontras diaudit ulang, semua lolos kecuali ikon Cisco (batas yang sudah disetujui).
 - 2026-11-25: Alfa `--glass` tema gelap dinaikkan dari 0,55 ke 0,70 atas persetujuan pemilik, supaya teks navbar mencapai 4,5:1 (4,62:1) di atas latar terburuk (`css/tokens.css`, `DESIGN.md` bagian 3).
 - 2026-11-25: Tinggi tautan nav diubah dari 44 px ke 40 px sesuai `DESIGN.md` bagian 7.1; header berubah dari statis ke sticky.
 - 2026-11-25: `DESIGN.md` bagian 3.5 ditambahkan untuk mencatat token struktural (`--font-display`, `--font-body`, `--gutter`, `--page-max`, `--cut`, `--nav-offset`, `--hover-wash`) sesuai aturan token di `docs/SOP-CODING.md` bagian 3. Tidak ada nilai desain yang berubah.

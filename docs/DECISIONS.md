@@ -151,7 +151,7 @@ Format entri: ID, tanggal, status, keputusan, alasan, alternatif yang ditolak, s
 ## D-19 Teks emas di tema terang memakai `#7A5813`
 - **Tanggal dan status:** Disetujui lewat Versi 3, dicatat 2026-11-19.
 - **Keputusan:** Warna teks beraksen emas di tema terang diubah dari `#C9A24B` menjadi `#7A5813`.
-- **Alasan:** Kontras. `#C9A24B` di atas `#F6F1E6` hanya 2,13:1, sedangkan `#7A5813` mencapai 5,77:1.
+- **Alasan:** Kontras. `#C9A24B` di atas `#F6F1E6` hanya 2,13:1, sedangkan `#7A5813` mencapai 5,77:1. (Latar kini `#FAF7F0`, lihat D-24: 2,24:1 dan 6,07:1.)
 - **Alternatif ditolak:** `#C9A24B` sebagai teks.
 - **Sumber:** instruksi 2026-11-19, `DESIGN.md` bagian 3.3.
 
@@ -195,3 +195,10 @@ Format entri: ID, tanggal, status, keputusan, alasan, alternatif yang ditolak, s
 
 - **Tampilan HP dan responsif:** HP disetujui (D-20, 2026-11-24). Tablet dan lebar menengah belum dirancang (Q-18). Benang latar di bawah 1180 px mengikuti D-09 sampai ada keputusan.
 - **Tema awal dan penyimpanan pilihan** (Q-03), **sumber font** (Q-04), **CDN dan versi pustaka** (Q-11), **alur cabang dan nama repo** (Q-15).
+
+## D-24 Tema terang dibuat lebih pucat (opsi A)
+- **Tanggal dan status:** Disetujui pemilik 2026-11-26, setelah membandingkan tiga mockup (krem sekarang, A, B).
+- **Keputusan:** Di tema terang `--bg` diubah dari `#F6F1E6` menjadi `#FAF7F0`, `--g1` dari `#E8DFCB` menjadi `#F0E9D8`, dan `--line` dari `#D9D0BC` menjadi `#E0D7C3`. Emas, tinta, token tema gelap, dan semua bentuk tidak berubah.
+- **Alasan:** Pemilik ingin tampilan terang yang lebih bersih tanpa kehilangan nuansa hangat krem-emas. Semua kontras tetap lolos dan sedikit membaik (teks isi 16,26:1, teks sekunder 6,62:1, teks emas gelap 6,07:1).
+- **Alternatif ditolak:** Putih netral (kehilangan identitas, emas terasa datar, biaya perubahan besar) dan opsi B `#FCFAF5` (kehangatan terlalu tipis).
+- **Sumber:** instruksi 2026-11-26, `DESIGN.md` bagian 3.

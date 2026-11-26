@@ -32,8 +32,8 @@ Dua tema. Terang bernuansa krem dan emas. Gelap bernuansa arang abu-abu dan pera
 
 | Token | Fungsi | Terang | Gelap |
 |---|---|---|---|
-| `--bg` | latar halaman | `#F6F1E6` | `#151618` |
-| `--g1` | latar kartu dan ujung gradasi latar | `#E8DFCB` | `#23252A` |
+| `--bg` | latar halaman | `#FAF7F0` | `#151618` |
+| `--g1` | latar kartu dan ujung gradasi latar | `#F0E9D8` | `#23252A` |
 | `--fg` | teks utama, tombol utama gelap | `#1B1A17` | `#ECEDEF` |
 | `--mut` | teks sekunder | `#5C584F` | `#A4A8B0` |
 | `--acc` | aksen untuk isian (bukan teks) | `#C9A24B` | `#C9CED6` |
@@ -41,7 +41,7 @@ Dua tema. Terang bernuansa krem dan emas. Gelap bernuansa arang abu-abu dan pera
 | `--onacc` | teks di atas isian aksen | `#1B1A17` | `#151618` |
 | `--i1` | ujung gelap gradasi teks "ITSC" | `#7A5813` | `#8D939D` |
 | `--i2` | ujung terang gradasi teks "ITSC" | `#C9A24B` | `#E4E7EC` |
-| `--line` | garis, latar placeholder, kata raksasa di footer | `#D9D0BC` | `#2E3035` |
+| `--line` | garis, latar placeholder, kata raksasa di footer | `#E0D7C3` | `#2E3035` |
 
 Latar halaman memakai gradasi lurus 180 derajat dari `--g1` ke `--bg` sepanjang 900 px pertama, tanpa pengulangan.
 
@@ -61,36 +61,36 @@ Ambang yang dipakai: teks biasa 4.5:1, teks besar (mulai 24 px, atau 18,66 px te
 
 | Pasangan | Terang | Gelap | Hasil |
 |---|---|---|---|
-| `--fg` di `--bg` | 15,45 | 15,46 | lolos |
+| `--fg` di `--bg` | 16,26 | 15,46 | lolos |
 | `--fg` di `--g1` | 13,13 | 13,09 | lolos |
-| `--mut` di `--bg` | 6,29 | 7,59 | lolos |
-| `--mut` di `--g1` | 5,35 | 6,43 | lolos |
-| `--accT` di `--bg` | 5,77 | 11,45 | lolos |
-| `--accT` di `--g1` | 4,90 | 9,70 | lolos |
+| `--mut` di `--bg` | 6,62 | 7,59 | lolos |
+| `--mut` di `--g1` | 5,85 | 6,43 | lolos |
+| `--accT` di `--bg` | 6,07 | 11,45 | lolos |
+| `--accT` di `--g1` | 5,37 | 9,70 | lolos |
 | `--onacc` di `--acc` (teks pada sorotan navbar dan tombol utama) | 7,25 | 11,45 | lolos |
-| `--mut` di `--line` (teks placeholder) | 4,62 | 5,54 | lolos |
-| `--i1` di `--bg` | 5,77 | 5,86 | lolos |
-| `--i2` di `--bg` | 2,13 | 14,61 | terang gagal untuk ujung emas (lihat 3.4) |
-| `--acc` di `--bg` (isian non-teks) | 2,13 | 11,45 | terang di bawah 3:1 (lihat 3.4) |
+| `--mut` di `--line` (teks placeholder) | 4,95 | 5,54 | lolos |
+| `--i1` di `--bg` | 6,07 | 5,86 | lolos |
+| `--i2` di `--bg` | 2,24 | 14,61 | terang gagal untuk ujung emas (lihat 3.4) |
+| `--acc` di `--bg` (isian non-teks) | 2,24 | 11,45 | terang di bawah 3:1 (lihat 3.4) |
 | `--acc` di `--g1` | 1,81 | 9,70 | terang di bawah 3:1, hanya dekoratif |
-| `--line` di `--bg` | 1,36 | 1,37 | dekoratif saja, tidak membawa informasi |
+| `--line` di `--bg` | 1,34 | 1,37 | dekoratif saja, tidak membawa informasi |
 
-Warna emas asli `#C9A24B` sebagai teks di atas `#F6F1E6` hanya 2,13:1. Itu sebabnya semua teks beraksen emas di tema terang memakai `#7A5813` (5,77:1 di `--bg`, 4,90:1 di `--g1`). `#C9A24B` hanya dipakai sebagai isian dan garis dekoratif.
+Warna emas asli `#C9A24B` sebagai teks di atas `#FAF7F0` hanya 2,24:1. Itu sebabnya semua teks beraksen emas di tema terang memakai `#7A5813` (6,07:1 di `--bg`, 5,37:1 di `--g1`). `#C9A24B` hanya dipakai sebagai isian dan garis dekoratif.
 
 ### 3.4 Temuan kontras pada mockup (perbaikan disetujui 2026-11-24)
 
 Ketiganya tercatat apa adanya. Pada 2026-11-24 pemilik meminta saya memilih opsi paling cocok, dan hasilnya ada di board "Versi 4c" (kanvas). Pemilik menyetujuinya pada hari yang sama. Situs asli dibangun dengan perbaikan ini (lihat `docs/PRD.md`, Q-05 sampai Q-07).
 
 Perbaikan yang disetujui (Versi 4c, kini sama dengan Versi 4):
-- **Lini masa (Q-05):** hanya lingkaran penanda dan garis rel yang diredupkan (opasitas 0,55). Semua teks tetap penuh, jadi teks sekunder `--mut` 6,29:1 di tema terang. Item aktif tetap ditandai lingkaran berisian aksen.
-- **Gradasi ITSC (Q-06):** di tema terang ujung `--i2` diubah dari `#C9A24B` (2,13:1) menjadi `#A07A22` (3,52:1, cukup untuk teks besar 3:1). `--i1` `#7A5813` tetap (5,77:1). Tema gelap tidak berubah.
-- **Navbar aktif (Q-07):** di tema terang penanda berisian tinta `--fg` (`#1B1A17`) dengan teks `--bg` (`#F6F1E6`), kontras 15,45:1. Tema gelap tetap isian perak. Di menu HP tema terang, baris aktif memakai isian aksen `#7A5813` dengan teks `--bg` (5,77:1) supaya berbeda dari baris Kontak yang berisian tinta. Ini selisih kecil dari rumusan "isian tinta" dan dicatat di `docs/PRD.md` bagian 5.
+- **Lini masa (Q-05):** hanya lingkaran penanda dan garis rel yang diredupkan (opasitas 0,55). Semua teks tetap penuh, jadi teks sekunder `--mut` 6,62:1 di tema terang. Item aktif tetap ditandai lingkaran berisian aksen.
+- **Gradasi ITSC (Q-06):** di tema terang ujung `--i2` diubah dari `#C9A24B` (2,24:1) menjadi `#A07A22` (3,70:1, cukup untuk teks besar 3:1). `--i1` `#7A5813` tetap (6,07:1). Tema gelap tidak berubah.
+- **Navbar aktif (Q-07):** di tema terang penanda berisian tinta `--fg` (`#1B1A17`) dengan teks `--bg` (`#FAF7F0`), kontras 16,26:1. Tema gelap tetap isian perak. Di menu HP tema terang, baris aktif memakai isian aksen `#7A5813` dengan teks `--bg` (6,07:1) supaya berbeda dari baris Kontak yang berisian tinta. Ini selisih kecil dari rumusan "isian tinta" dan dicatat di `docs/PRD.md` bagian 5.
 
 Rincian masalah aslinya:
 
 1. Item lini masa yang tidak aktif (`.tl`, opacity 0,55). Judul 22 px dan peran 20 px (bobot 600) efektif 3,75:1 di tema terang dan 5,38:1 di tema gelap. Angka itu lolos hanya bila dihitung sebagai teks besar, dan bobot 600 berada di perbatasan definisi "tebal", jadi sebaiknya ikut diperbaiki. Teks sekunder 15 px jelas gagal: efektif 2,40:1 di tema terang dan 3,15:1 di tema gelap, sedangkan ambangnya 4,5:1.
-2. Gradasi teks "ITSC" (56 px, tema terang). Ujung `--i2` `#C9A24B` hanya 2,13:1, di bawah 3:1 untuk teks besar. Ujung `--i1` aman.
-3. Sorotan navbar aktif di tema terang. Isian emas terhadap latar hanya 2,13:1 dan warna teks aktif sama dengan warna teks tidak aktif (`#1B1A17`), sehingga status aktif hanya dibedakan oleh isian itu. Di tema gelap rasionya 11,45:1 dan tidak bermasalah.
+2. Gradasi teks "ITSC" (56 px, tema terang). Ujung `--i2` `#C9A24B` hanya 2,24:1, di bawah 3:1 untuk teks besar. Ujung `--i1` aman.
+3. Sorotan navbar aktif di tema terang. Isian emas terhadap latar hanya 2,24:1 dan warna teks aktif sama dengan warna teks tidak aktif (`#1B1A17`), sehingga status aktif hanya dibedakan oleh isian itu. Di tema gelap rasionya 11,45:1 dan tidak bermasalah.
 
 Teks navbar di atas kaca juga belum bisa dihitung secara statis karena latarnya berubah mengikuti konten yang lewat. Ini harus diuji pada bagian halaman dengan latar terburuk di kedua tema (lihat `docs/SOP-CODING.md`).
 
@@ -250,8 +250,8 @@ Pada situs asli posisi dihitung dari scroll halaman, bukan dari bingkai, dan har
 Status: usulan 2026-11-19 atas permintaan pemilik ("latar terlalu polos, ingin bertekstur", referensi foto kontur pada situs ekawahyu-portofolio). Disetujui 2026-11-24 (D-21).
 
 - **Bentuk:** garis kontur halus tanpa isian, seperti peta topografi. Dibuat sebagai satu pola SVG yang bisa disambung mulus (ubin 1200 × 1200 px, tepi kiri dan kanan serta atas dan bawah cocok) dan diulang di seluruh latar halaman. Sekitar 59 jalur: 45 garis biasa (1,3 px) dan 14 garis indeks (2 px, tiap garis keempat, seperti pada peta sungguhan).
-- **Warna:** memakai token `--line` yang sudah ada (`#D9D0BC` terang, `#2E3035` gelap), tanpa token baru. Garis ini 1,36:1 dan 1,37:1 terhadap `--bg`, jadi tetap latar yang tenang.
-- **Teks di atas garis:** teks sekunder `--mut` yang tepat berada di atas garis kontur tetap 4,62:1 (terang) dan 5,54:1 (gelap), di atas ambang 4,5:1. Teks utama jauh di atasnya. Kotak skill berisian `--tile` sehingga menutupi garis. Judul dan kalimat kelompok Skills kini langsung di atas garis (tidak ada kartu pembungkus), jadi kontras teks `--mut` di sana mengacu pada angka di atas.
+- **Warna:** memakai token `--line` yang sudah ada (`#E0D7C3` terang, `#2E3035` gelap), tanpa token baru. Garis ini 1,34:1 dan 1,37:1 terhadap `--bg`, jadi tetap latar yang tenang.
+- **Teks di atas garis:** teks sekunder `--mut` yang tepat berada di atas garis kontur tetap 4,95:1 (terang) dan 5,54:1 (gelap), di atas ambang 4,5:1. Teks utama jauh di atasnya. Kotak skill berisian `--tile` sehingga menutupi garis. Judul dan kalimat kelompok Skills kini langsung di atas garis (tidak ada kartu pembungkus), jadi kontras teks `--mut` di sana mengacu pada angka di atas.
 - **Susunan lapisan:** di bawah semua konten (z-index 0), di atas gradasi latar `--g1` ke `--bg`. `pointer-events: none` dan `aria-hidden`.
 - **Alasan tertulis (antislop):** latar bertekstur biasanya dilarang tanpa alasan identitas. Alasannya di sini: kontur adalah garis, selaras dengan benang latar (bagian 9) yang juga garis, jadi keduanya terbaca sebagai satu motif. Pemilik memintanya secara eksplisit. Benang `t1` (jalur dasar) diubah menjadi `--mut` dengan opasitas 0,3 supaya tetap terbedakan dari garis kontur.
 - **Gerak dan micro-interaction (revisi D-22):** lapisan dasar tetap statis. Di atasnya ada lapisan sorotan dengan pola kontur yang sama, berwarna `--hi` (`#C9A24B` terang, `#C9CED6` gelap, garis 2,2 px), yang hanya tampak di dalam lingkaran berjari-jari sekitar 230 px yang mengikuti kursor. Tepinya memudar lewat `mask-image: radial-gradient`. Saat kursor meninggalkan halaman, sorotan memudar dalam 0,4 detik. Posisi dihitung dari kursor relatif terhadap latar, dan dihitung ulang saat scroll supaya sorotan tetap di bawah kursor. Pola dibuat satu kali di `<g>` lalu dipakai dua kali lewat `<use>` (satu untuk garis dasar, satu untuk sorotan), jadi data garis tidak digandakan.

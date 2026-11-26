@@ -42,8 +42,8 @@
 
   /* Tema terang (krem dan emas), juga cadangan bila data-theme belum dipasang */
   color-scheme: light;
-  --bg: #F6F1E6;
-  --g1: #E8DFCB;
+  --bg: #FAF7F0;
+  --g1: #F0E9D8;
   --fg: #1B1A17;
   --mut: #5C584F;
   --acc: #C9A24B;
@@ -51,7 +51,7 @@
   --onacc: #1B1A17;
   --i1: #7A5813;
   --i2: #A07A22;
-  --line: #D9D0BC;
+  --line: #E0D7C3;
   --tile: #FFFDF8;
   --tileB: rgba(120, 110, 90, 0.24);
   --hi: #C9A24B;
