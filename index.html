@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/motion.css">
   <!-- Tanpa JavaScript tombol ganti tema dan salin email tidak bisa bekerja, jadi disembunyikan (tidak ada kontrol mati) -->
-  <noscript><style>[data-theme-toggle], [data-copy-email] { display: none !important; }</style></noscript>
+  <noscript><style>[data-theme-toggle], [data-copy-email], .js-nav-toggle { display: none !important; } .site-header { position: static; height: auto !important; } .nav-menu { grid-template-rows: 1fr !important; visibility: visible !important; }</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main">Lompat ke isi utama</a>
@@ -56,20 +56,33 @@
   </svg>
 
   <header class="site-header">
+    <!-- Selubung di belakang menu HP: ketuk untuk menutup. Hanya ada di lebar HP dan hanya bila menu terbuka (css/components.css). -->
+    <div class="nav-scrim js-nav-scrim" aria-hidden="true"></div>
     <div class="nav-bar js-nav-bar">
       <a class="nav-logo display" href="#sec-home">Hafids</a>
-      <nav class="nav-links" aria-label="Utama">
-        <a class="nav-link js-nav-link" href="#sec-home">Beranda</a>
-        <a class="nav-link js-nav-link" href="#sec-skills">Skills</a>
-        <a class="nav-link js-nav-link" href="#sec-karya">Karya</a>
-        <a class="nav-link js-nav-link" href="#sec-about">Tentang</a>
-      </nav>
+      <!-- Desktop: pembungkus .nav-menu dan .nav-menu-inner tidak membuat kotak (display: contents).
+           HP (640 px ke bawah): keduanya menjadi panel menu yang membuka ke bawah di dalam kartu navbar. -->
+      <div class="nav-menu js-nav-menu" id="nav-menu">
+        <div class="nav-menu-inner">
+          <nav class="nav-links" aria-label="Utama">
+            <a class="nav-link js-nav-link" href="#sec-home">Beranda</a>
+            <a class="nav-link js-nav-link" href="#sec-skills">Skills</a>
+            <a class="nav-link js-nav-link" href="#sec-karya">Karya</a>
+            <a class="nav-link js-nav-link" href="#sec-about">Tentang</a>
+          </nav>
+          <a class="nav-contact nav-contact-menu js-nav-contact" data-on="false" href="#sec-contact">Kontak</a>
+        </div>
+      </div>
       <div class="nav-actions">
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap">
           <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
           <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>
         </button>
-        <a class="nav-contact js-nav-contact" data-on="false" href="#sec-contact">Kontak</a>
+        <a class="nav-contact nav-contact-bar js-nav-contact" data-on="false" href="#sec-contact">Kontak</a>
+        <button class="menu-toggle js-nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Buka menu">
+          <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16"></path></svg>
+          <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
       </div>
     </div>
   </header>

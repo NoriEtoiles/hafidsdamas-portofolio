@@ -95,7 +95,7 @@ button {
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transform: translateY(-120%);
+  transform: translateY(-200%);
 }
 .skip-link:focus-visible {
   transform: translateY(8px);

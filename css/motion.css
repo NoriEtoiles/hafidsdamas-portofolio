@@ -183,3 +183,30 @@ html.lenis body {
     opacity: 1;
   }
 }
+
+/* Menu HP: tinggi kartu membuka 0,35 detik, isi memudar; selubung memudar. Dengan reduced motion membuka tanpa transisi. */
+@media (prefers-reduced-motion: no-preference) and (max-width: 640px) {
+  .nav-menu {
+    transition: grid-template-rows 0.35s cubic-bezier(0.3, 0.9, 0.3, 1), visibility 0s linear 0.35s;
+  }
+  .nav-bar.is-open .nav-menu {
+    transition: grid-template-rows 0.35s cubic-bezier(0.3, 0.9, 0.3, 1), visibility 0s;
+  }
+  .nav-menu-inner {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .nav-bar.is-open .nav-menu-inner {
+    opacity: 1;
+    transition: opacity 0.3s ease 0.1s;
+  }
+  .nav-scrim {
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .site-header.is-open .nav-scrim {
+    transition: opacity 0.3s ease, visibility 0s;
+  }
+  .menu-toggle {
+    transition: transform 0.15s ease, background-color 0.25s ease;
+  }
+}

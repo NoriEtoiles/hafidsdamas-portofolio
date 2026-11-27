@@ -14,6 +14,7 @@ Aturan penulisan:
 ## [Belum dirilis]
 
 ### Ditambahkan
+- 2026-11-27: Potongan 4.9 (FR-14, D-25). Tampilan HP 640 px ke bawah: navbar satu kartu kaca dengan menu yang membuka di dalam kartu (tombol tema, tombol menu ikon dua garis menjadi X, empat tautan, tombol Kontak di dasar, selubung ketuk-untuk-tutup, Escape, `aria-expanded`/`aria-controls`/`aria-label`); satu kolom di semua section, tombol selebar kolom, kata "Hafids" footer selebar kolom, ukuran huruf `clamp()`, rapat di 360 dan 260 px ke bawah (`index.html`, `js/navbar.js`, `css/components.css`, `css/layout.css`, `css/motion.css`, `css/tokens.css`, `css/base.css`, `DESIGN.md`, `docs/DECISIONS.md` D-25, `docs/PRD.md` butir 21, 44, 45).
 - 2026-11-26: Potongan 4.8 (FR-12). Audit reduced motion (awal dan berubah saat terbuka), fallback tanpa CDN dan tanpa JavaScript; tombol ganti tema dan salin email disembunyikan bila JavaScript mati (`index.html`).
 - 2026-11-26: Potongan 4.7b (D-21, D-22). Latar kontur topografi, sorotan kontur di bawah kursor (hanya perangkat dengan hover), dan cahaya pada kata "Hafids" di footer; keduanya mati dengan reduced motion (`js/contour.js`, `js/footer-glow.js`, `css/layout.css`, `css/motion.css`, `index.html`, `js/main.js`).
 - 2026-11-25: Potongan 4.7 (FR-10). Benang latar: dua jalur SVG di gutter yang menyeberang lewat celah antar section, ujung aksen dan titik mengikuti scroll, dihitung ulang saat ukuran dan font berubah, tersembunyi di bawah 1180 px, tergambar penuh tanpa titik dengan reduced motion (`js/thread.js`, `css/layout.css`, `css/base.css`, `index.html`).
@@ -43,6 +44,7 @@ Aturan penulisan:
 - 2026-11-19: Paragraf hero di `docs/PRD.md` bagian 8.1 diganti menjadi lebih santai dan personal atas komentar tinjauan pemilik (FR-04, PRD bagian 5 butir 17). Board Versi 3 belum diperbarui.
 
 ### Diperbaiki
+- 2026-11-27: Sorotan kontur berbentuk kotak setelah perbaikan lag; kini lingkaran memudar (`css/layout.css`, `docs/PRD.md` butir 46). Tautan lompat ke isi utama tidak lagi mengintip di tepi atas layar HP (`css/base.css`).
 - 2026-11-26: Lag scroll dan gerak kursor setelah 4.7b. Sorotan kontur kini jendela 460 px yang dipindah dengan `transform` (mask ubin baru `assets/contour-hi.svg`), benang digambar sekali dan saat scroll hanya tinggi pembungkus dan posisi titik yang berubah, rebuild benang digabung per frame (`js/contour.js`, `js/thread.js`, `css/layout.css`, `css/motion.css`, `index.html`, `DESIGN.md`, `docs/PRD.md` butir 35, 38, 43). Waktu per frame scroll turun dari 20,7 ke 16,7 ms rata-rata (p95 33,4 ke 16,8) di Chrome headless.
 - Belum ada.
 

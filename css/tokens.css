@@ -128,3 +128,10 @@
     --gutter: 20px;
   }
 }
+
+/* Lebar ekstrem (zoom 200% pada HP 390 px menghasilkan sekitar 195 px): gutter dirapatkan supaya navbar muat tanpa scroll horizontal */
+@media (max-width: 260px) {
+  :root {
+    --gutter: 12px;
+  }
+}

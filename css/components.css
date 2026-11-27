@@ -148,6 +148,16 @@
   background: transparent;
   color: var(--fg);
 }
+/* Elemen khusus HP disembunyikan di desktop; pembungkus menu tidak membuat kotak supaya tata letak desktop tidak berubah */
+.nav-menu,
+.nav-menu-inner {
+  display: contents;
+}
+.nav-contact-menu,
+.menu-toggle,
+.nav-scrim {
+  display: none;
+}
 /* Satu ikon terlihat per tema: matahari di terang, bulan di gelap */
 .icon-moon {
   display: none;
@@ -434,4 +444,216 @@
 .timeline-text {
   margin-top: 8px;
   color: var(--mut);
+}
+
+/* ---------- Navbar HP, 640 px ke bawah (DESIGN.md bagian 15, direvisi atas permintaan pemilik 2026-11-27) ----------
+   Satu kartu kaca yang selalu tampil (tanpa menyatu dan berpisah). Menu membuka ke bawah di dalam kartu yang sama,
+   bukan sebagai panel terpisah. Kontak menjadi tombol di dasar panel. */
+@media (max-width: 640px) {
+  /* Tinggi header tetap setinggi kartu tertutup: menu yang terbuka menimpa isi halaman dan tidak mendorongnya,
+     jadi posisi section tidak bergeser saat menu dibuka atau ditutup (tujuan scroll tetap benar). */
+  .site-header {
+    height: 60px;
+  }
+  .nav-bar,
+  .nav-bar.is-split {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    padding: 8px;
+    z-index: 1;
+    isolation: isolate;
+  }
+  .nav-bar::before,
+  .nav-bar.is-split::before {
+    inset: 0;
+    border-radius: 20px;
+    opacity: 1;
+  }
+  .nav-logo,
+  .nav-bar.is-split .nav-logo {
+    height: 44px;
+    padding: 0 8px;
+    font-size: 24px;
+    border-radius: 12px;
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  /* Penempatan eksplisit: baris 1 berisi logo dan tombol, baris 2 panel menu (urutan DOM: logo, panel, tombol) */
+  .nav-logo {
+    grid-area: 1 / 1;
+  }
+  .nav-actions {
+    grid-area: 1 / 2;
+    gap: 8px;
+  }
+  .nav-menu {
+    grid-area: 2 / 1 / 3 / -1;
+  }
+  .nav-actions .nav-contact-bar {
+    display: none;
+  }
+  .theme-toggle,
+  .nav-bar.is-split .theme-toggle,
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--glassB);
+    border-radius: 12px;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    color: var(--fg);
+  }
+  .nav-logo:hover,
+  .nav-logo:active,
+  .nav-bar.is-split .nav-logo:hover,
+  .nav-bar.is-split .nav-logo:active,
+  .theme-toggle:hover,
+  .theme-toggle:active,
+  .nav-bar.is-split .theme-toggle:hover,
+  .nav-bar.is-split .theme-toggle:active,
+  .menu-toggle:active {
+    background-image: linear-gradient(var(--hover-wash), var(--hover-wash));
+  }
+  .menu-toggle:active {
+    transform: scale(0.92);
+  }
+  .menu-toggle .icon-close,
+  .menu-toggle[aria-expanded="true"] .icon-menu {
+    display: none;
+  }
+  .menu-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+  }
+
+  /* Panel: baris kedua kartu. Tinggi dianimasikan dari 0fr ke 1fr; saat tertutup tidak bisa difokus atau diketuk. */
+  .nav-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+  }
+  .nav-bar.is-open .nav-menu {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+  .nav-menu-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 8px;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 8px;
+    padding: 0;
+  }
+  .nav-pill {
+    display: none;
+  }
+  .nav-link {
+    justify-content: space-between;
+    min-width: 0;
+    height: 52px;
+    padding: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    font-size: 17px;
+  }
+  .nav-link:not([aria-current="true"]):hover {
+    background: transparent;
+  }
+  .nav-link:not([aria-current="true"]):active {
+    background: var(--hover-wash);
+  }
+  /* Bagian aktif: teks beraksen dan tanda centang, jadi tidak hanya lewat warna */
+  .nav-link[aria-current="true"],
+  :root[data-theme="dark"] .nav-link[aria-current="true"] {
+    color: var(--accT);
+    font-weight: 600;
+  }
+  .nav-link[aria-current="true"]::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .nav-contact-menu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 52px;
+    margin: 12px 0 8px;
+    padding: 0;
+    border-radius: 14px;
+    font-size: 17px;
+  }
+  .nav-contact-menu:hover {
+    transform: none;
+  }
+  .nav-contact-menu:active {
+    opacity: 0.88;
+  }
+
+  /* Selubung: menutup menu bila diketuk di luar kartu */
+  .nav-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    background: rgba(27, 26, 23, 0.32);
+    opacity: 0;
+    visibility: hidden;
+  }
+  :root[data-theme="dark"] .nav-scrim {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .site-header.is-open .nav-scrim {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+/* Navbar pada lebar sangat sempit (layar 320 px ke bawah, atau zoom 200% pada HP): navbar mengecil supaya tidak melebar melewati layar */
+@media (max-width: 360px) {
+  .site-header {
+    height: 56px;
+  }
+  .nav-logo,
+  .nav-bar.is-split .nav-logo {
+    padding: 0 4px;
+    font-size: 20px;
+  }
+  .nav-bar,
+  .nav-bar.is-split {
+    padding: 6px;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+}
+
+/* Bingkai foto: bayangan aksen digeser lebih kecil pada lebar ekstrem agar tidak melewati gutter 12 px */
+@media (max-width: 260px) {
+  .photo-frame::before {
+    inset: 8px -8px -8px 8px;
+  }
 }

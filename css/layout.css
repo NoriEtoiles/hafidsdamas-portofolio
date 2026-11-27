@@ -92,8 +92,8 @@ main {
   pointer-events: none;
   transform: translate3d(var(--sx, -999px), var(--sy, -999px), 0);
   will-change: transform, opacity;
-  -webkit-mask-image: radial-gradient(circle at center, #000 0, rgba(0, 0, 0, 0.6) 45%, transparent 100%), url("../assets/contour-hi.svg");
-  mask-image: radial-gradient(circle at center, #000 0, rgba(0, 0, 0, 0.6) 45%, transparent 100%), url("../assets/contour-hi.svg");
+  -webkit-mask-image: radial-gradient(circle 230px at center, #000 0, rgba(0, 0, 0, 0.6) 45%, transparent 100%), url("../assets/contour-hi.svg");
+  mask-image: radial-gradient(circle 230px at center, #000 0, rgba(0, 0, 0, 0.6) 45%, transparent 100%), url("../assets/contour-hi.svg");
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
   -webkit-mask-repeat: no-repeat, repeat;
@@ -335,4 +335,106 @@ main {
   line-height: 0.9;
   white-space: nowrap;
   color: var(--line);
+}
+
+/* Tampilan HP, 640 px ke bawah (PRD FR-14, DESIGN.md bagian 15). Satu kolom di semua section; navbar HP ada di css/components.css.
+   Ukuran huruf memakai clamp() dengan vw. Lebar 640 sampai 1180 px (tablet) belum dirancang (Q-18) dan memakai tata letak desktop yang membungkus. */
+@media (max-width: 640px) {
+  .section {
+    padding: 32px var(--gutter) 88px;
+  }
+  .section-home {
+    padding-top: 56px;
+    gap: 40px;
+  }
+  .hero-name {
+    font-size: clamp(30px, 14.4vw, 64px);
+  }
+  .hero-role {
+    margin-top: 24px;
+    font-size: 20px;
+  }
+  .hero-cta,
+  .contact-links .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-photo {
+    flex: 0 0 auto;
+  }
+  .section-title {
+    font-size: clamp(56px, 22.5vw, 96px);
+  }
+  .section-head {
+    gap: 12px;
+  }
+  .section-aside {
+    max-width: none;
+    text-align: left;
+  }
+  .skill-groups {
+    gap: 56px;
+    margin-top: 40px;
+  }
+  .skill-group {
+    flex-basis: 100%;
+  }
+  .skill-group-title {
+    font-size: clamp(22px, 10.2vw, 44px);
+  }
+  .project-list {
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .project-card,
+  .project-next {
+    flex-basis: 100%;
+  }
+  .about-columns {
+    gap: 56px;
+  }
+  .about-column {
+    flex-basis: 100%;
+  }
+  .about-title {
+    margin-bottom: 32px;
+    font-size: clamp(28px, 12.3vw, 64px);
+  }
+  .contact-inner {
+    padding-top: 72px;
+  }
+  .contact-title {
+    font-size: clamp(26px, 13.3vw, 64px);
+  }
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 36px;
+  }
+  .contact-links a {
+    overflow-wrap: anywhere;
+  }
+  /* Alamat email muat satu baris di 320 px ke atas; di bawah itu boleh patah baris */
+  .contact-links a[href^="mailto:"] {
+    font-size: clamp(14px, 4.2vw, 18px);
+  }
+  .footer-meta {
+    margin-top: 56px;
+  }
+  .skill-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .skill,
+  .timeline-body {
+    overflow-wrap: anywhere;
+  }
+  /* Kata "Hafids" selebar kolom: lebar kata = 2,568 × ukuran huruf (diukur di 380 px), tinggi potongan = 0,6 × ukuran huruf */
+  .footer-word {
+    font-size: calc((100vw - 2 * var(--gutter)) / 2.6);
+  }
+  .footer-word-clip {
+    height: calc((100vw - 2 * var(--gutter)) / 2.6 * 0.6);
+    margin-top: 16px;
+  }
 }

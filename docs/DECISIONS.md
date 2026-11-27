@@ -191,6 +191,14 @@ Format entri: ID, tanggal, status, keputusan, alasan, alternatif yang ditolak, s
 
 ---
 
+## D-25 Navbar HP menjadi satu kartu yang menyatu dengan menunya (menggantikan sebagian D-20)
+- **Tanggal dan status:** Diminta pemilik 2026-11-27, berdasarkan dua gambar acuan (kartu navbar bersih, dan menu yang terbuka sebagai bagian dari kartu yang sama).
+- **Keputusan:** Di HP (640 px ke bawah) navbar berupa satu kartu kaca yang selalu tampil. Menu membuka ke bawah di dalam kartu itu, dengan baris tautan berpemisah garis tipis dan tombol Kontak di dasar. Tombol menu tidak lagi menampilkan nama bagian saat ini (nama itu tetap ada di `aria-label`). Perilaku menyatu dan berpisah saat scroll tidak berlaku di HP.
+- **Alasan:** Lebih bersih dan terbaca sebagai satu objek, sesuai acuan pemilik. Empat board HP lainnya (hero, skills, karya, tentang, kontak) disetujui apa adanya, dengan warna terang mengikuti D-24.
+- **Yang diganti dari D-20:** panel kaca terpisah di bawah navbar, nama bagian di tombol menu, dan lebur di puncak.
+- **Tidak ada logo ubin:** acuan memakai ubin berinisial di samping nama; situs ini tetap memakai kata "HAFIDS" saja. Ubin berhuruf H bisa dipertimbangkan setelah ikon tab selesai (4.10).
+- **Sumber:** instruksi 2026-11-27, `DESIGN.md` bagian 15.
+
 ## Keputusan tertunda
 
 - **Tampilan HP dan responsif:** HP disetujui (D-20, 2026-11-24). Tablet dan lebar menengah belum dirancang (Q-18). Benang latar di bawah 1180 px mengikuti D-09 sampai ada keputusan.

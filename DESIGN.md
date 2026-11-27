@@ -254,7 +254,7 @@ Status: usulan 2026-11-19 atas permintaan pemilik ("latar terlalu polos, ingin b
 - **Teks di atas garis:** teks sekunder `--mut` yang tepat berada di atas garis kontur tetap 4,95:1 (terang) dan 5,54:1 (gelap), di atas ambang 4,5:1. Teks utama jauh di atasnya. Kotak skill berisian `--tile` sehingga menutupi garis. Judul dan kalimat kelompok Skills kini langsung di atas garis (tidak ada kartu pembungkus), jadi kontras teks `--mut` di sana mengacu pada angka di atas.
 - **Susunan lapisan:** di bawah semua konten (z-index 0), di atas gradasi latar `--g1` ke `--bg`. `pointer-events: none` dan `aria-hidden`.
 - **Alasan tertulis (antislop):** latar bertekstur biasanya dilarang tanpa alasan identitas. Alasannya di sini: kontur adalah garis, selaras dengan benang latar (bagian 9) yang juga garis, jadi keduanya terbaca sebagai satu motif. Pemilik memintanya secara eksplisit. Benang `t1` (jalur dasar) diubah menjadi `--mut` dengan opasitas 0,3 supaya tetap terbedakan dari garis kontur.
-- **Gerak dan micro-interaction (revisi D-22):** lapisan dasar tetap statis. Di atasnya ada lapisan sorotan dengan pola kontur yang sama, berwarna `--hi` (`#C9A24B` terang, `#C9CED6` gelap, garis 2,2 px), yang hanya tampak di dalam lingkaran berjari-jari sekitar 230 px yang mengikuti kursor. Tepinya memudar lewat `mask-image: radial-gradient`. Lapisan ini berupa jendela 460 × 460 px yang dipindah dengan `transform` (bukan lapisan seukuran halaman), dan garisnya muncul lewat mask ubin `assets/contour-hi.svg` yang digeser agar sejajar dengan kontur dasar. Saat kursor meninggalkan halaman, sorotan memudar dalam 0,4 detik. Posisi dihitung dari kursor relatif terhadap latar, dan dihitung ulang saat scroll supaya sorotan tetap di bawah kursor. Garis dasar memakai pola `<g>` di `index.html`; ubin sorotan memakai salinan garis yang sama di `assets/contour-hi.svg` (data garis ada dua tempat, ubah keduanya bersama).
+- **Gerak dan micro-interaction (revisi D-22):** lapisan dasar tetap statis. Di atasnya ada lapisan sorotan dengan pola kontur yang sama, berwarna `--hi` (`#C9A24B` terang, `#C9CED6` gelap, garis 2,2 px), yang hanya tampak di dalam lingkaran berjari-jari sekitar 230 px yang mengikuti kursor. Tepinya memudar lewat `mask-image: radial-gradient(circle 230px …)`, jadi sorotan berbentuk lingkaran (bukan kotak; sempat kotak setelah perbaikan lag sampai direvisi 2026-11-27). Lapisan ini berupa jendela 460 × 460 px yang dipindah dengan `transform` (bukan lapisan seukuran halaman), dan garisnya muncul lewat mask ubin `assets/contour-hi.svg` yang digeser agar sejajar dengan kontur dasar. Saat kursor meninggalkan halaman, sorotan memudar dalam 0,4 detik. Posisi dihitung dari kursor relatif terhadap latar, dan dihitung ulang saat scroll supaya sorotan tetap di bawah kursor. Garis dasar memakai pola `<g>` di `index.html`; ubin sorotan memakai salinan garis yang sama di `assets/contour-hi.svg` (data garis ada dua tempat, ubah keduanya bersama).
   - **Tujuan tertulis:** memberi tahu bahwa latar hidup dan memberi umpan balik pada kursor tanpa mengganggu bacaan. Sorotan tidak berjalan sendiri.
   - **Hanya perangkat dengan hover dan penunjuk halus** (`(hover: hover) and (pointer: fine)`). Di layar sentuh lapisan sorotan tidak dipasang.
   - **Reduced motion:** transisi pudar dimatikan. Sorotan tetap mengikuti kursor karena itu manipulasi langsung, bukan gerak otomatis.
@@ -353,8 +353,8 @@ Yang berbeda di HP:
 
 | Hal | Desktop (Versi 4) | HP |
 |---|---|---|
-| Navbar | Logo, empat tautan dengan sorotan geser, tombol tema, tombol Kontak | Logo di kiri. Di kanan: tombol tema dan tombol menu yang memuat nama bagian saat ini. Menu membuka panel kaca berisi Beranda, Skills, Karya, Tentang, dan Kontak. Bagian aktif ditandai isian aksen dan tanda centang. Kontak berisi gelap, dan berisi aksen saat aktif |
-| Menyatu dan berpisah | Lebar 744 ke 1144 px | Satu kapsul kaca di puncak, lebur saat scroll lebih dari 40 px (ambang sama), tanpa perubahan lebar |
+| Navbar (direvisi 2026-11-27, D-25) | Logo, empat tautan dengan sorotan geser, tombol tema, tombol Kontak | Satu kartu kaca bersudut 20 px: logo di kiri, tombol tema dan tombol menu (ikon dua garis, berubah menjadi X saat terbuka) di kanan, masing-masing 44 px bersudut 12 px dengan garis tipis. Menu membuka ke bawah di dalam kartu yang sama: empat baris tautan 52 px dipisah garis tipis, lalu tombol Kontak selebar kartu di dasar (gelap di terang, perak di gelap, beraksen saat aktif). Bagian aktif: teks beraksen (`--accT`) dan tanda centang, bukan hanya warna |
+| Menyatu dan berpisah | Lebar 744 ke 1144 px | Tidak ada: kartu kaca selalu tampil dengan lebar penuh kolom (revisi D-25; rancangan lama melebur di puncak) |
 | Benang latar | Ada di atas 1180 px | Tidak ada |
 | Hero | Dua kolom | Nama, tagline, paragraf, tombol selebar kolom, lalu foto 4:5 di bawah |
 | Skills | Tiga kelompok berdampingan, kisi kotak ikon dua kolom di tiap kelompok | Tiga kelompok bertumpuk, tiap kelompok berisi kisi kotak ikon dua kolom |
@@ -365,11 +365,14 @@ Yang berbeda di HP:
 | Ukuran huruf | Nama `clamp(64px, 8.8vw, 128px)` | Mockup memakai 56 px. Situs asli memakai `clamp()` dengan nilai yang diukur ulang |
 
 Perilaku menu HP:
-- Tombol menu: `aria-expanded`, `aria-controls="mpanel"`, dan `aria-label` yang menyebut bagian saat ini ("Buka menu, bagian saat ini: Skills").
-- Panel muncul dalam 0,35 detik (naik 8 px dan memudar) di bawah navbar, disertai selubung gelap tipis di belakang. Dengan reduced motion, muncul tanpa transisi.
+- Tombol menu: `aria-expanded`, `aria-controls="nav-menu"`, dan `aria-label` yang menyebut bagian saat ini ("Buka menu, bagian saat ini: Skills"). Nama bagian tidak lagi tampil di tombol, hanya di label.
+- Kartu membuka tingginya dalam 0,35 detik (isi memudar masuk), disertai selubung gelap tipis di belakang. Dengan reduced motion, terbuka tanpa transisi. Tinggi header di aliran halaman tetap setinggi kartu tertutup (60 px, 56 px di 360 px ke bawah): menu yang terbuka menimpa isi halaman dan tidak mendorongnya, supaya posisi section tidak bergeser.
+- Dibuka dengan keyboard (Enter atau Spasi), fokus pindah ke tautan pertama. Urutan Tab di DOM: logo, tautan menu, tombol tema, tombol menu; tautan menu hanya bisa difokus saat terbuka.
 - Menutup: ketuk tombol menu, ketuk selubung, tekan Escape (fokus kembali ke tombol), atau ketuk salah satu tautan. Ketuk tautan juga menggulir ke section dengan offset 72 px.
 - Tombol tema dan tombol menu setinggi 44 px. Baris panel setinggi 52 px.
 - Status tekan (active) ada untuk logo, tombol tema, tombol menu, dan baris panel, karena di layar sentuh tidak ada hover. Ini menutup sebagian celah di bagian 12.
+- Tanpa JavaScript: tombol menu disembunyikan, daftar tautan tampil terbuka di puncak halaman dan navbar tidak lengket.
+- Lebar 360 px ke bawah: logo 20 px dan kartu dirapatkan; 260 px ke bawah (zoom 200% pada HP 390 px): gutter 12 px dan bayangan bingkai foto dikecilkan. Ukuran judul memakai `clamp()` dengan batas bawah kecil supaya kata terpanjang ("PENGEMBANGAN", "PENGALAMAN") muat di 195 px.
 
 Keterbatasan usulan:
 - Mockup memakai piksel tetap untuk ukuran huruf karena satuan `vw` di kanvas mengikuti lebar jendela editor, bukan bingkai.
