@@ -292,6 +292,7 @@ Elemen disembunyikan oleh gaya yang hanya aktif bila kelas `js` terpasang di aka
 - Tema berganti lewat atribut `data-theme`.
 - Efek lingkaran hanya berjalan di Chromium menurut catatan pemilik. Peramban lain mengganti tema langsung tanpa animasi. Karena dukungan View Transitions API terus berubah, hal ini harus diuji ulang di Firefox dan Safari saat pengujian lintas-peramban, dan fallback langsung tetap wajib ada.
 - Dengan reduced motion, tema berganti langsung.
+- Di lebar HP (640 px ke bawah) tema juga berganti langsung tanpa lingkaran (2026-11-27): pada Brave Android transisi bersamaan dengan bilah alamat membuat navbar lengket sempat lenyap dari layar.
 
 ## 12. Status interaksi
 

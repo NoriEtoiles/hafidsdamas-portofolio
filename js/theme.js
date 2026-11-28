@@ -1,6 +1,6 @@
 // Tombol ganti tema. Di peramban yang mendukung View Transitions dan bila pengguna tidak meminta
 // kurangi gerak, tampilan baru terungkap sebagai lingkaran dari pusat tombol (DESIGN.md bagian 11).
-// Selain itu tema berganti langsung. Gaya lingkarannya ada di css/motion.css.
+// Selain itu, termasuk di lebar HP, tema berganti langsung. Gaya lingkarannya ada di css/motion.css.
 const STORAGE_KEY = "portofolio-tema";
 
 function currentTheme() {
@@ -23,12 +23,15 @@ function applyTheme(next) {
 
 export function initTheme() {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const phone = window.matchMedia("(max-width: 640px)");
   const buttons = document.querySelectorAll("[data-theme-toggle]");
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const next = currentTheme() === "dark" ? "light" : "dark";
       // Preferensi dibaca saat klik, jadi perubahan saat halaman terbuka tetap dihormati
-      if (typeof document.startViewTransition !== "function" || reduce.matches) {
+      // Di HP (640 px ke bawah) tema berganti langsung: pada Chrome dan Brave Android, bilah alamat yang muncul atau
+      // hilang saat transisi membuat navbar lengket sempat lenyap dari layar (dilaporkan pemilik 2026-11-27).
+      if (typeof document.startViewTransition !== "function" || reduce.matches || phone.matches) {
         applyTheme(next);
         return;
       }
