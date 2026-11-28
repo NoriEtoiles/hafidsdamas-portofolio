@@ -65,12 +65,19 @@
     z-index: 0;
   }
 }
+/* Selama transisi tema tidak ada transisi CSS lain yang boleh berjalan (lihat js/theme.js) */
+.is-theme-switching,
+.is-theme-switching *,
+.is-theme-switching *::before,
+.is-theme-switching *::after {
+  transition: none !important;
+}
 @keyframes theme-reveal {
   from {
     clip-path: circle(0 at var(--ox, 50%) var(--oy, 50%));
   }
   to {
-    clip-path: circle(150% at var(--ox, 50%) var(--oy, 50%));
+    clip-path: circle(var(--or, 150%) at var(--ox, 50%) var(--oy, 50%));
   }
 }
 

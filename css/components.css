@@ -455,6 +455,19 @@
   .site-header {
     height: 60px;
   }
+  /* Header HP memakai position: fixed (bukan sticky), seperti situs acuan: sticky bisa salah posisi di Chrome dan Brave Android
+     saat transisi tema bersamaan dengan bilah alamat. Ruang di aliran halaman diganti padding atas pada <main> (bukan margin, supaya tidak runtuh menembus <body>) (60 + 16 px). */
+  .site-header {
+    position: fixed;
+    top: 16px;
+    right: 0;
+    left: 0;
+    max-width: none;
+    margin: 0;
+  }
+  body > main {
+    padding-top: 76px;
+  }
   .nav-bar,
   .nav-bar.is-split {
     display: grid;

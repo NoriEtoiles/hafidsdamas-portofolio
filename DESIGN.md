@@ -287,12 +287,12 @@ Elemen disembunyikan oleh gaya yang hanya aktif bila kelas `js` terpasang di aka
 
 ## 11. Transisi tema (lingkaran)
 
-- Klik tombol tema memanggil `document.startViewTransition()`. Tampilan baru terungkap sebagai lingkaran yang meluas dari titik tengah tombol (`clip-path: circle(0)` ke `circle(150%)`, 0,7 detik, `ease-in-out`). Animasi bawaan lama dan baru dimatikan (`animation: none`, `mix-blend-mode: normal`).
+- Klik tombol tema memanggil `document.startViewTransition()`. Tampilan baru terungkap sebagai lingkaran yang meluas dari titik tengah tombol (`clip-path: circle(0)` ke `circle(var(--or))`, 0,7 detik, `ease-in-out`). Animasi bawaan lama dan baru dimatikan (`animation: none`, `mix-blend-mode: normal`).
 - Koordinat asal (`--ox`, `--oy`) diambil dari pusat tombol yang diklik.
 - Tema berganti lewat atribut `data-theme`.
 - Efek lingkaran hanya berjalan di Chromium menurut catatan pemilik. Peramban lain mengganti tema langsung tanpa animasi. Karena dukungan View Transitions API terus berubah, hal ini harus diuji ulang di Firefox dan Safari saat pengujian lintas-peramban, dan fallback langsung tetap wajib ada.
 - Dengan reduced motion, tema berganti langsung.
-- Di lebar HP (640 px ke bawah) tema juga berganti langsung tanpa lingkaran (2026-11-27): pada Brave Android transisi bersamaan dengan bilah alamat membuat navbar lengket sempat lenyap dari layar.
+- Lingkaran berlaku di HP dan desktop (pemilik 2026-11-28: esensial). Pola dari richardmiculob-portfolio: jari-jari dalam piksel (`--or`, jarak ke sudut terjauh), semua transisi CSS dimatikan selama transisi (kelas `is-theme-switching` pada `<html>`), klik saat berjalan diabaikan. Header HP memakai `position: fixed` agar tidak salah posisi di Chrome dan Brave Android.
 
 ## 12. Status interaksi
 
