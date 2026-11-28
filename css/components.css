@@ -11,7 +11,8 @@
 .nav-bar::before,
 .nav-bar.is-split .nav-logo,
 .nav-bar.is-split .nav-links,
-.nav-bar.is-split .theme-toggle {
+.nav-bar.is-split .theme-toggle,
+.nav-bar.is-split .nav-contact-bar {
   background-color: var(--glass);
   background-image: linear-gradient(135deg, var(--sheen), transparent 45%);
   border-color: var(--glassB);
@@ -37,7 +38,8 @@
 /* Bagian-bagian: tembus pandang saat menyatu, kaca sendiri saat berpisah */
 .nav-logo,
 .nav-links,
-.theme-toggle {
+.theme-toggle,
+.nav-contact {
   border: 1px solid transparent;
   border-radius: 999px;
 }
@@ -54,14 +56,18 @@
    active memakai wash yang sama lalu mengecil. Saat berpisah, wash ditumpuk di atas kilap kaca. */
 .nav-logo:hover,
 .theme-toggle:hover,
+.nav-contact:hover,
 .nav-logo:active,
-.theme-toggle:active {
+.theme-toggle:active,
+.nav-contact:active {
   background-image: linear-gradient(var(--hover-wash), var(--hover-wash));
 }
 .nav-bar.is-split .nav-logo:hover,
 .nav-bar.is-split .theme-toggle:hover,
+.nav-bar.is-split .nav-contact-bar:hover,
 .nav-bar.is-split .nav-logo:active,
-.nav-bar.is-split .theme-toggle:active {
+.nav-bar.is-split .theme-toggle:active,
+.nav-bar.is-split .nav-contact-bar:active {
   background-image: linear-gradient(var(--hover-wash), var(--hover-wash)), linear-gradient(135deg, var(--sheen), transparent 45%);
 }
 .nav-logo:active {
@@ -69,6 +75,9 @@
 }
 .theme-toggle:active {
   transform: scale(0.92);
+}
+.nav-contact:active {
+  transform: scale(0.96);
 }
 .theme-toggle svg {
   transform-origin: center;
@@ -125,17 +134,21 @@
   height: 48px;
   padding: 0 26px;
   border-radius: 999px;
-  background: var(--fg);
-  color: var(--bg);
+  background-color: transparent;
+  color: var(--fg);
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
 }
-.nav-contact:hover {
-  transform: translateY(-2px);
+/* Kontak memakai bahan yang sama dengan bagian navbar lain (kaca saat berpisah, tembus pandang saat menyatu), bukan
+   tombol hitam (diminta pemilik 2026-11-28). Aktif: berisian seperti penanda aktif tautan nav. */
+.nav-bar .nav-contact[data-on="true"],
+.nav-bar.is-split .nav-contact[data-on="true"] {
+  background-color: var(--fg);
+  background-image: none;
+  color: var(--bg);
 }
-.nav-contact[data-on="true"] {
-  background: var(--acc);
+:root[data-theme="dark"] .nav-bar .nav-contact[data-on="true"] {
   color: var(--onacc);
 }
 .theme-toggle {
@@ -624,14 +637,16 @@
     height: 52px;
     margin: 12px 0 8px;
     padding: 0;
+    border: 1px solid var(--fg);
     border-radius: 14px;
     font-size: 17px;
   }
-  .nav-contact-menu:hover {
+  .nav-contact-menu:hover,
+  .nav-contact-menu:active {
     transform: none;
   }
   .nav-contact-menu:active {
-    opacity: 0.88;
+    background-image: linear-gradient(var(--hover-wash), var(--hover-wash));
   }
 
   /* Selubung: menutup menu bila diketuk di luar kartu */

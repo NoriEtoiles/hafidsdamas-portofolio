@@ -199,6 +199,13 @@ Format entri: ID, tanggal, status, keputusan, alasan, alternatif yang ditolak, s
 - **Tidak ada logo ubin:** acuan memakai ubin berinisial di samping nama; situs ini tetap memakai kata "HAFIDS" saja. Ubin berhuruf H bisa dipertimbangkan setelah ikon tab selesai (4.10).
 - **Sumber:** instruksi 2026-11-27, `DESIGN.md` bagian 15.
 
+## D-26 Tombol Kontak di navbar memakai bahan kaca seperti bagian lain
+- **Tanggal dan status:** Diminta pemilik 2026-11-28.
+- **Keputusan:** Tombol Kontak tidak lagi hitam (terang) atau perak (gelap) sebagai isian tetap, dan tidak lagi berubah emas saat Kontak aktif. Ia memakai bahan yang sama dengan logo dan tombol tema: tembus pandang saat navbar menyatu, kaca sendiri saat berpisah. Saat Kontak aktif ia berisian tinta (terang) atau perak (gelap), sama seperti penanda aktif tautan nav. Di menu HP tombol Kontak berbingkai tipis `--fg`, berisian saat aktif.
+- **Alasan:** Tombol hitam yang berubah krem-emas di bagian Kontak terasa janggal; bahan seragam membuat navbar terbaca sebagai satu keluarga.
+- **Konsekuensi:** Kontak tidak lagi menjadi tombol paling menonjol di navbar. Penekanan ditanggung tombol utama di halaman ("Lihat karya", "Salin email"). Jika pemilik ingin menonjolkannya lagi, cukup tambah isian aksen.
+- **Sumber:** instruksi 2026-11-28, `DESIGN.md` bagian 7 dan 12.
+
 ## Keputusan tertunda
 
 - **Tampilan HP dan responsif:** HP disetujui (D-20, 2026-11-24). Tablet dan lebar menengah belum dirancang (Q-18). Benang latar di bawah 1180 px mengikuti D-09 sampai ada keputusan.

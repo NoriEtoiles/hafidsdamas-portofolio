@@ -195,7 +195,7 @@ Satu `<header>` sticky (`top: 16px`, `z-index: 20`, lebar maksimum 1240 px, padd
 - Logo teks "Hafids" (tautan ke Beranda, tinggi 48 px, padding 24 px, huruf display 24 px).
 - Kelompok `<nav aria-label="Utama">` dengan empat tautan berukuran sama: Beranda, Skills, Karya, Tentang (masing-masing 104 × 40 px, padding kelompok 4 px).
 - Tombol tema 48 × 48 px (matahari di tema terang, bulan di tema gelap).
-- Tombol "Kontak" berupa tautan ke `#sec-contact` (tinggi 48 px, padding 26 px).
+- Tombol "Kontak" berupa tautan ke `#sec-contact` (tinggi 48 px, padding 26 px). Bahannya sama dengan logo dan tombol tema (revisi D-26): tembus pandang saat navbar menyatu, kaca sendiri saat berpisah, bukan isian hitam.
 
 ### 7.2 Menyatu di hero, berpisah saat di-scroll
 
@@ -211,7 +211,7 @@ Satu `<header>` sticky (`top: 16px`, `z-index: 20`, lebar maksimum 1240 px, padd
 
 Satu penanda isian `--acc` (radius 999 px, 104 × 40 px) berpindah di belakang tautan aktif dengan `transform: translateX(indeks × 104px)` selama 0,5 detik, `cubic-bezier(.3,1.3,.5,1)` (sedikit melampaui lalu kembali). Teks tautan aktif berubah menjadi `--onacc`. Tautan tidak aktif yang di-hover mendapat latar `rgba(120,110,90,.16)`.
 
-Penentuan section aktif: section dianggap aktif saat tepi atasnya melewati 40% tinggi viewport. Di dasar halaman, section terakhir (Kontak) otomatis aktif. Saat Kontak aktif, penanda nav menghilang (opasitas 0) dan tombol "Kontak" berubah dari isian `--fg` ke isian `--acc` dengan teks `--onacc`. Tautan aktif membawa `aria-current="true"`.
+Penentuan section aktif: section dianggap aktif saat tepi atasnya melewati 40% tinggi viewport. Di dasar halaman, section terakhir (Kontak) otomatis aktif. Saat Kontak aktif, penanda nav menghilang (opasitas 0) dan tombol "Kontak" berubah dari kaca menjadi isian `--fg` dengan teks `--bg` (terang) atau `--onacc` (gelap), sama seperti penanda aktif tautan nav (revisi D-26; sebelumnya hitam berubah emas). Tautan aktif membawa `aria-current="true"`.
 
 Selama scroll mulus ke suatu section, sorotan langsung berpindah ke tujuan dan tidak mengikuti section yang dilewati.
 
@@ -301,7 +301,7 @@ Elemen disembunyikan oleh gaya yang hanya aktif bila kelas `js` terpasang di aka
 | Tautan teks (`.lnk`) | garis bawah 1 px tumbuh dari kiri (0,3 detik) | belum ada | kontur 2 px `currentColor`, jarak 4 px | tidak ada |
 | Tombol (`.btn`) | naik 2 px, tombol sekunder berubah ke `--line` | kembali ke posisi awal | kontur 2 px | belum ada |
 | Tautan nav | latar `rgba(120,110,90,.16)` bila tidak aktif | belum ada | kontur 2 px | tidak ada |
-| Tombol "Kontak" | naik 2 px | belum ada | kontur 2 px | tidak ada |
+| Tombol "Kontak" (revisi D-26) | wash `--hover-wash` seperti logo dan tombol tema | wash lalu mengecil 0,96 | kontur 2 px | tidak ada |
 | Logo "Hafids" | latar `--hover-wash` (Q-13, disetujui 2026-11-25) | wash yang sama, mengecil ke 0,96 | kontur 2 px | tidak ada |
 | Tombol tema | latar `--hover-wash`, ikon berputar 18 derajat (Q-13) | wash yang sama, mengecil ke 0,92 | kontur 2 px | tidak ada |
 | Kartu Karya | gambar naik 6 px (0,35 detik), garis bawah 3 px tumbuh di judul | belum ada | kontur 2 px | tidak ada |

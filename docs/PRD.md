@@ -102,6 +102,7 @@ Dicatat apa adanya agar tidak ada yang tersembunyi. Butir 1 sampai 6 disampaikan
 | 47 | Lingkaran kaca lonjong di menu HP | Dilaporkan pemilik 2026-11-27 lewat rekaman layar: saat halaman sudah melewati Beranda, menu terbuka menampilkan kapsul kaca lonjong besar di belakang tautan. Penyebab: keadaan `.is-split` (navbar berpisah) memberi `.nav-links` bahan kaca sendiri, dan aturan HP tidak menimpanya. Tes 4.9 hanya membuka menu di puncak halaman, jadi tidak menangkapnya. Diperbaiki: daftar tautan di panel tanpa latar, blur, garis, dan bayangan. Tes baru membuka menu di section Skills di dua tema. | Selesai. |
 | 48 | Navbar HP hilang saat ganti tema | Dilaporkan pemilik 2026-11-27 (Brave Android): kadang navbar naik keluar layar saat tombol tema ditekan. Perbaikan pertama (tema langsung tanpa lingkaran di HP) DITOLAK pemilik 2026-11-28: lingkaran wajib ada di HP, dan situs acuan richardmiculob-portfolio membuktikan aman di HP. Perbaikan final, dipelajari dari repo acuan: (1) jari-jari lingkaran dalam piksel ke sudut terjauh layar (`--or`), (2) semua transisi CSS dimatikan selama transisi lewat kelas `is-theme-switching` (agar tangkapan baru tidak merekam navbar atau warna setengah jalan), (3) klik saat transisi berjalan diabaikan, (4) header HP memakai `position: fixed` (bukan sticky) seperti navbar acuan, dengan ruang diganti padding atas `<main>`. | Dugaan penyebab belum terbukti (tidak bisa direproduksi di Chrome headless); tes headless membuktikan lingkaran berjalan di HP dan desktop, navbar tetap di layar. Pemilik perlu menguji ulang di HP yang sama; bila masih terjadi, kirim rekaman baru. |
 | 49 | Tombol menu mepet tepi kanan kartu | Dilaporkan pemilik 2026-11-27 (terlihat di tema gelap). Padding kanan kartu naik dari 8 ke 14 px (10 px di 360 px ke bawah), berlaku di kedua tema; garis pemisah menu tetap simetris. | Selesai. |
+| 50 | Tombol Kontak navbar berbahan kaca | Diminta pemilik 2026-11-28 (D-26). Desktop: tembus pandang saat menyatu, kaca saat berpisah, hover dan active seperti logo, aktif berisian tinta atau perak. HP: tombol di menu berbingkai, berisian saat aktif. Dicek lewat tangkapan layar di dua tema pada puncak, tengah, dan dasar halaman; tes HP (M11) lolos. | Kontak tak lagi menonjol di navbar (lihat D-26). |
 
 ## 6. Kebutuhan fungsional
 
@@ -121,7 +122,7 @@ Kriteria penerimaan:
 Kriteria penerimaan:
 - Ada empat tautan (Beranda, Skills, Karya, Tentang) dan satu tombol Kontak, masing-masing ke id section nyata (`#sec-home`, `#sec-skills`, `#sec-karya`, `#sec-about`, `#sec-contact`). Tidak ada tautan mati.
 - Penanda sorotan berpindah di belakang tautan aktif dalam 0,5 detik dengan sedikit melampaui lalu kembali.
-- Section aktif ditentukan saat tepi atasnya melewati 40% tinggi viewport. Di dasar halaman, Kontak aktif: penanda nav menghilang dan tombol Kontak berisi aksen.
+- Section aktif ditentukan saat tepi atasnya melewati 40% tinggi viewport. Di dasar halaman, Kontak aktif: penanda nav menghilang dan tombol Kontak berisi tinta (terang) atau perak (gelap), sama seperti penanda tautan nav (D-26).
 - Tautan aktif membawa `aria-current`. Status aktif tidak hanya dibedakan oleh warna (Q-07).
 - Seluruh navbar bisa dioperasikan dengan keyboard (Tab, Enter) dan fokusnya terlihat.
 
